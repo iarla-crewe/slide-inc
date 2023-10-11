@@ -9,9 +9,9 @@
         android:id="@+id/banner"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginBottom="291dp"
+        android:layout_marginBottom="56dp"
         android:background="#A0A29F"
-        app:layout_constraintBottom_toTopOf="@+id/loginButton"
+        app:layout_constraintBottom_toTopOf="@+id/signUpButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -20,13 +20,15 @@
     <TextView
         android:id="@+id/welcomeText"
         android:layout_width="135dp"
-        android:layout_height="36dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginBottom="408dp"
         android:gravity="center"
         android:text="Welcome"
         android:textColor="#000000"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="@+id/banner"
-        app:layout_constraintEnd_toEndOf="@+id/banner"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,22 +36,49 @@
     <Button
         android:id="@+id/loginButton"
         android:layout_width="210dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="344dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="54dp"
         android:text="Login"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="@+id/signUpButton"
+        app:layout_constraintTop_toBottomOf="@+id/signUpButton" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="210dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="23dp"
+        android:text="Sign Up"
+        app:layout_constraintBottom_toTopOf="@+id/loginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/banner" />
 
     <Button
-        android:id="@+id/signUpButton"
-        android:layout_width="210dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="288dp"
-        android:text="Sign Up"
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="66dp"
+        android:onClick="buttonChatGPT"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
+        app:toggleCheckedStateOnClick="true" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="22dp"
+        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
