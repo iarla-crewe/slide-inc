@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 class PaymentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.payment_page)
+        setContentView(R.layout.activity_payment)
 
         val submitButton = findViewById<Button>(R.id.submitButton)
 
