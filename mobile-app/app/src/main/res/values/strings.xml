@@ -1,8 +1,18 @@
 <resources>
     <string name="app_name">HealthAI</string>
+
+    <!-- Welcome Activity -->
     <string name="welcome_title">Welcome to HealthAI</string>
     <string name="login">Login</string>
     <string name="sign_up">Sign Up</string>
+
+    <!-- Login and SignUp Activities -->
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="phone_num">Phone Number</string>
     <string name="email">Email</string>
+    <string name="confirm_email">Confirm Email</string>
     <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="create_account">Create Account</string>
 </resources>

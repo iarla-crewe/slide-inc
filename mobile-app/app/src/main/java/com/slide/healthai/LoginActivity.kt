@@ -19,7 +19,8 @@ class LoginActivity : AppCompatActivity() {
         binding.btnSubmitLogin.setOnClickListener {
             val email = binding.etEmail.text
             val password = binding.etPassword.text
-            Log.d("LOGIN", "$email, $password")
+
+            // TODO - Handle login
 
             startActivity(
                 Intent(this, HealthAIPageActivity::class.java)
