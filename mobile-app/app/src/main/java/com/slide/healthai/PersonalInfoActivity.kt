@@ -6,7 +6,7 @@ import android.os.Bundle
 
 
 class PersonalInfoActivity : AppCompatActivity() {
-    private lateinit var binding;
+//    private lateinit var binding;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
