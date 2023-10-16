@@ -1,26 +1,34 @@
 import React from 'react';
+import Link from 'next/link';
+import Header from './components/header';
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
+  
     <div>
-      <header className="bg-gray-300 pb-6 pt-8 border-b border-gray-500">
-        <h1 className="text-3xl font-bold text-black ml-4">HealthAI</h1>
-      </header>
+      <Header/>
       <main className="flex flex-col items-center justify-center min-h-screen">
         <h1 className="text-5xl font-bold mb-8">Welcome to HealthAI</h1>
         <p className="text-xl text-center mb-8">
           Unlock the Power of AI in Healthcare
         </p>
         <div className="flex flex-col space-y-4">
-          <button className="google-login-button">
-            <span className="button-icon" />
-            Login with Google
-          </button>
+          <Link href="./patientList">
+            <span className="google-login-button">
+              <span className="button-icon" />
+              Login with Google
+            </span>
+          </Link>
         </div>
         <p className="text-lg mt-6">
-          New to HealthAI? <a href="/register" className="text-blue-500">Create an Account</a>
+          New to HealthAI?{' '}
+          <Link href="./registration">
+            <span className="text-blue-500">Create an Account</span>
+          </Link>
         </p>
       </main>
     </div>
   );
 }
+
+export default Home;

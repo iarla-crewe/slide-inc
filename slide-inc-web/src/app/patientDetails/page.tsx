@@ -1,12 +1,14 @@
-import Layout from './layout';
+import React from 'react';
+import Header from '../components/header';
 
-const Page = () => {
+const patientDetails: React.FC = () => {
   return (
-    <Layout>
-      <h1>hello</h1>
-      <p>hello</p>
-    </Layout>
+  
+    <div>
+      <Header/>
+      
+    </div>
   );
-};
+}
 
-export default Page;
+export default patientDetails;
