@@ -3,9 +3,9 @@ package com.slide.healthai
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity4 : AppCompatActivity() {
+class HeathAiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profhelp)
+        setContentView(R.layout.activity_healthai)
     }
 }
