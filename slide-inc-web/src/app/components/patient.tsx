@@ -21,11 +21,11 @@ const Patient = ({ name, sex, dob }: PatientProps) => {
           <span className="label">DOB:</span> {dob}
         </p>
       </div>
-      <button className="detailsButton">
-        <Link href="/patientDetails">
+      <Link href="/patientDetails">
+        <button className="detailsButton">
           <span>Details</span>
-        </Link>
-      </button>
+        </button>
+      </Link>
     </div>
   );
 };

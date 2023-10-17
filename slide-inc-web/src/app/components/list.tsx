@@ -1,5 +1,6 @@
 import React from 'react';
 import Patient from './patient';
+import '../globals.css'
 
 const patients = [
   { name: 'Eric Afrifa', sex: 'Male', dob: '14/04/2002' },
@@ -8,13 +9,14 @@ const patients = [
   {name: 'Diego Garcia', sex: 'Male', dob: '27/06/2006'},
   {name: 'Iarla Crewe', sex: 'Male', dob: '05/02/2002'},
   {name: 'Michelle Njoku', sex: 'Female', dob: '12/12/2001'},
-  {name: 'Eoghan Smith', sex: 'Male', dob: '14/01/1998'}
+  {name: 'Eoghan Smith', sex: 'Male', dob: '14/01/1998'},
+  {name: 'Emma Smith', sex: 'Female', dob: '14/01/1998'}
   
 ];
 
 const PatientList = () => {
   return (
-    <div>
+    <div className='patientList' >
       <h2>Patients List</h2>
       {patients.map((patient, index) => (
         <Patient key={index} {...patient} />
