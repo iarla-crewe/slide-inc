@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HealthAI</string>
+    <string name="login_title">Login</string>
+</resources>
