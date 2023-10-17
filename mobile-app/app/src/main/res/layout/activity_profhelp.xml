@@ -16,8 +16,42 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.082" />
 
+    <TextView
+        android:id="@+id/requestHelp"
+        android:layout_width="191dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="108dp"
+        android:text="Request Professional Help"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="111dp" />
+
+
+    <TextView
+        android:id="@+id/categorizeIssue"
+        android:layout_width="191dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="204dp"
+        android:text="Categorize Issue"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="199dp" />
+
+    <TextView
+        android:id="@+id/describeIssue"
+        android:layout_width="191dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="204dp"
+        android:text="Describe Issue"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="328dp" />
+
     <Button
-        android:id="@+id/button"
+        android:id="@+id/requestHelpButton"
         android:layout_width="300px"
         android:layout_height="wrap_content"
         android:text="Submit"

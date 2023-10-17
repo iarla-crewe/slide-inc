@@ -19,7 +19,7 @@
             android:name=".PersonalInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".HeathAiActivity"
+            android:name=".supportActivity"
             android:exported="false" />
         <activity
             android:name=".WelcomeActivity"
