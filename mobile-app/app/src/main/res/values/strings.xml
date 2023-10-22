@@ -22,4 +22,7 @@
     <!-- Support Pages -->
     <string name="professional_help_title">Get Professional Help</string>
     <string name="support_title">Support</string>
+
+    <!-- Review Page -->
+    <string name="review_title">Leave a Review</string>
 </resources>
