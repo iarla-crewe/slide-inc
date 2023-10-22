@@ -18,6 +18,128 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/banner" />
 
+    <TextView
+        android:id="@+id/PersonalInfo"
+        android:layout_width="191dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="108dp"
+        android:text="Personal Information"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="72dp" />
+
+    <TextView
+        android:id="@+id/FirstName"
+        android:layout_width="136dp"
+        android:layout_height="33dp"
+        android:layout_marginEnd="256dp"
+        android:text="First Name"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="137dp" />
+
+    <TextView
+        android:id="@+id/LastName"
+        android:layout_width="191dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="16dp"
+        android:text="Last Name"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="136dp" />
+
+    <TextView
+        android:id="@+id/Country"
+        android:layout_width="191dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="204dp"
+        android:text="Country"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="210dp" />
+
+
+    <TextView
+        android:id="@+id/CityView"
+        android:layout_width="191dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="12dp"
+        android:text="City"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="210dp" />
+
+    <TextView
+        android:id="@+id/ZipCode"
+        android:layout_width="191dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="204dp"
+        android:text="Zip Code"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="285dp" />
+
+    <TextView
+        android:id="@+id/EmailAddress"
+        android:layout_width="191dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="12dp"
+        android:text="Email Address"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="285dp" />
+
+    <TextView
+        android:id="@+id/CardInfo"
+        android:layout_width="191dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="204dp"
+        android:text="Card Information"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="348dp" />
+
+    <TextView
+        android:id="@+id/CardNumber"
+        android:layout_width="191dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="204dp"
+        android:text="Card Number"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="382dp" />
+
+    <TextView
+        android:id="@+id/CVCnumber"
+        android:layout_width="191dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="12dp"
+        android:text="CVC"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="382dp" />
+
+    <TextView
+        android:id="@+id/MonthAndYear"
+        android:layout_width="191dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="204dp"
+        android:text="Month and Year"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="428dp" />
+
     <Button
         android:id="@+id/submitButton"
         android:layout_width="164dp"
@@ -26,6 +148,7 @@
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/banner" />
 
