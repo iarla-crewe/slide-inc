@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
             // TODO - Handle login
 
             startActivity(
-                Intent(this, HealthAIPageActivity::class.java)
+                Intent(this, HomeActivity::class.java)
             )
         }
     }

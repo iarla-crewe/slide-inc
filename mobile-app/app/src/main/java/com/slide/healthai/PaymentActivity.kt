@@ -16,7 +16,7 @@ class PaymentActivity : AppCompatActivity() {
 
         binding.submitButton.setOnClickListener {
             startActivity(
-                Intent(this, HealthAIPageActivity::class.java)
+                Intent(this, HomeActivity::class.java)
             )
         }
     }
