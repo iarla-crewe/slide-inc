@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.AuthFailureError
@@ -15,59 +14,28 @@ import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.slide.healthai.databinding.ActivityHomeBinding
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     private var stringOutput: String = ""
     private lateinit var textView: TextView
     val stringAPIKey = "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"
     val stringURLEndPoint = "https://api.openai.com/v1/chat/completions"
+
+    private lateinit var binding: ActivityHomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.welcome_page)
-        textView = findViewById(R.id.textView4)
-
-        val loginButton = findViewById<Button>(R.id.loginButton)
-        val signUpButton = findViewById<Button>(R.id.signUpButton)
-        val button = findViewById<Button>(R.id.button3)
-
-        loginButton.setOnClickListener {
-            val loginIntent = Intent(this, LoginActivity::class.java)
-            startActivity(loginIntent)
-        }
-
-        signUpButton.setOnClickListener {
-            val signUpIntent = Intent(this, SignUpActivity::class.java)
-            startActivity(signUpIntent)
-        }
-
-        val button3 = findViewById<Button>(R.id.button3)
-
-        button3.setOnClickListener {
-            buttonChatGPT(it)
-        }
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
-//        val button = findViewById<Button>(R.id.button)
-//        button.setOnClickListener {
-//            val Intent = Intent(this,MainActivity2::class.java)
-//            startActivity(Intent)
-//        }
-//
-//        val button1 = findViewById<Button>(R.id.button1)
-//        button1.setOnClickListener {
-//            val Intent = Intent(this,MainActivity3::class.java)
-//            startActivity(Intent)
-//        }
-//
-//        val button2 = findViewById<Button>(R.id.button2)
-//        button2.setOnClickListener {
-//            val Intent = Intent(this,MainActivity4::class.java)
-//            startActivity(Intent)
     }
+
     fun buttonChatGPT(view: View) {
 
         val jsonObject = JSONObject()
@@ -118,7 +86,10 @@ class MainActivity : AppCompatActivity() {
                     if (error.networkResponse != null) {
                         val statusCode = error.networkResponse.statusCode
                         val errorMessage = String(error.networkResponse.data)
-                        Log.e("Volley Error", "Status Code: $statusCode, Error Message: $errorMessage")
+                        Log.e(
+                            "Volley Error",
+                            "Status Code: $statusCode, Error Message: $errorMessage"
+                        )
 
                         // You can display a message to the user or take other actions based on the error.
                     } else {
@@ -130,10 +101,7 @@ class MainActivity : AppCompatActivity() {
                     // Handle non-Volley errors
                 }
             }
-        )
-
-
-        {
+        ) {
             @Throws(AuthFailureError::class)
             override fun getHeaders(): Map<String, String> {
                 val mapHeader = HashMap<String, String>()
@@ -157,4 +125,3 @@ class MainActivity : AppCompatActivity() {
         Volley.newRequestQueue(applicationContext).add(jsonObjectRequest)
     }
 }
-
