@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "590799317593",
+    "project_id": "health-ai-9e1c9",
+    "storage_bucket": "health-ai-9e1c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:590799317593:android:5950c31e4d16368799df48",
+        "android_client_info": {
+          "package_name": "com.slide.healthai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDVq3OqGSwaVwlWk3DNGrFsG6_ap3mQ6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
