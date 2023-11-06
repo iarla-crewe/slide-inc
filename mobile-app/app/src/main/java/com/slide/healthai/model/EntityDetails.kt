@@ -1,4 +1,4 @@
-package com.slide.healthai
+package com.slide.healthai.model
 
 data class GpDetails(
     val name: String,

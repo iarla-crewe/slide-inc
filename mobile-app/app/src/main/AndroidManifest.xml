@@ -18,7 +18,7 @@
             android:name=".SupportActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfessionalHelpActivity"
+            android:name=".UI.ProfessionalHelpActivity"
 =======
             android:name=".profHelpActivity"
 >>>>>>> main
@@ -30,7 +30,7 @@
             android:name=".HeathAiActivity"
             android:exported="false" />
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".UI.WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,16 +39,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".UI.LoginActivity"
             android:label="Login Activity"></activity>
         <activity
-            android:name=".SignUpActivity"
+            android:name=".UI.SignUpActivity"
             android:label="Sign Up Activity"></activity>
         <activity
             android:name=".HealthAIPageActivity"
             android:label="Health AI Page"></activity>
         <activity
-            android:name=".PaymentActivity"
+            android:name=".UI.PaymentActivity"
             android:label="Payment Activity"></activity>
     </application>
 

@@ -1,4 +1,4 @@
-package com.slide.healthai
+package com.slide.healthai.UI
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
