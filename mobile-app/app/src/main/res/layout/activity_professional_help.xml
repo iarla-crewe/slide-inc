@@ -4,29 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PersonalInfoActivity">
+<<<<<<< HEAD:mobile-app/app/src/main/res/layout/activity_healthai.xml
+    tools:context=".supportActivity">
+=======
+    tools:context=".ProfessionalHelpActivity">
+>>>>>>> 2b669aa21759639ec5324ac334911dcf9a3446ff:mobile-app/app/src/main/res/layout/activity_professional_help.xml
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Personal Information "
+        android:text="@string/professional_help_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.051" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="300px"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="532dp"
-        android:text="Health Score "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintVertical_bias="0.022" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
