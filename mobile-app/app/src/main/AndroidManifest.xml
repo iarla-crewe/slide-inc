@@ -36,5 +36,4 @@
             android:name=".PaymentActivity"
             android:label="Payment Activity"/>
     </application>
-
 </manifest>
