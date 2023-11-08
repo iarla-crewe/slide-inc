@@ -13,43 +13,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthAI"
         tools:targetApi="31">
-        <activity
-<<<<<<< HEAD
-            android:name=".SupportActivity"
-            android:exported="false" />
+
+
         <activity
             android:name=".UI.ProfessionalHelpActivity"
-=======
-            android:name=".profHelpActivity"
->>>>>>> main
             android:exported="false" />
-        <activity
-            android:name=".PersonalInfoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HeathAiActivity"
-            android:exported="false" />
+
         <activity
             android:name=".UI.WelcomeActivity"
-            android:exported="true">
+            android:exported="true" />
+
+            <activity
+                android:name=".UI.LoginActivity"
+                android:exported="true" />
+
+            <activity
+                android:name=".UI.SignUpActivity"
+                android:exported="true" />
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".UI.LoginActivity"
-            android:label="Login Activity"></activity>
-        <activity
-            android:name=".UI.SignUpActivity"
-            android:label="Sign Up Activity"></activity>
-        <activity
-            android:name=".HealthAIPageActivity"
-            android:label="Health AI Page"></activity>
-        <activity
-            android:name=".UI.PaymentActivity"
-            android:label="Payment Activity"></activity>
-    </application>
+        </application>
+
 
 </manifest>
