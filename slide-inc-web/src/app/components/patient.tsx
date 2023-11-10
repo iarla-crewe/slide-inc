@@ -21,7 +21,7 @@ const Patient = ({ name, sex, dob }: PatientProps) => {
           <span className="label">DOB:</span> {dob}
         </p>
       </div>
-      <Link href="/patientDetails">
+      <Link href={"/patients/" + name}>
         <button className="detailsButton">
           <span>Details</span>
         </button>
