@@ -12,7 +12,6 @@ export default function Patients() {
     {name: 'Michelle Njoku', sex: 'Female', dob: '12/12/2001'},
     {name: 'Eoghan Smith', sex: 'Male', dob: '14/01/1998'},
     {name: 'Emma Smith', sex: 'Female', dob: '14/01/1998'}
-    
   ];
 
   return (
