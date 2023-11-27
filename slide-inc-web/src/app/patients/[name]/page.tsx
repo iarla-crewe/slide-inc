@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Header from '../../components/header';
-import { createDoctor, createPatient } from '@/app/lib/database';
+import { getDoctor, getPatient } from '@/app/lib/database';
 
 export default function PatientDetails({ params }: { params: { name: string }}) {
     const name = params.name.replace("%20", " ");
@@ -13,6 +13,9 @@ export default function PatientDetails({ params }: { params: { name: string }}) 
         prediction: 'Rick prediction',
         healthScore: '90%',
     };
+
+    //getDoctor("+353861568765");
+    getDoctor("+000000000000");
 
     return (
         <div className="container">

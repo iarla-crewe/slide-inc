@@ -1,7 +1,8 @@
-import { ref, set } from "firebase/database"
+import { ref, set, onValue } from "firebase/database"
 import { database } from "../firebaseConfig.js"
 import { encryptPassword } from "./utils"
 import { randomBytes } from "crypto"
+import { Doctor, Patient } from "./model"
 
 const DOCTORS_PATH = "doctors/"
 const PATIENTS_PATH = "patients/"
@@ -65,6 +66,54 @@ export async function createPatient(
     return plainTextPassword
 }
 
-// export function getDoctor(phone: string) {
-//     const reference = ref(database, DOCTORS_PATH + )
-// }
+export function getDoctor(phone: string) {
+    if(!PHONE_REGEX.test(phone)) {
+        console.log("Invalid phone number: " + phone);
+        return false;
+    }
+
+    const reference = ref(database, DOCTORS_PATH + phone)
+    onValue(reference, (snapshot) => {
+        const data = snapshot.val()
+        if (data == null) return null;
+    
+        const doctor = new Doctor(
+            phone,
+            data.email,
+            data.encryptedPassword,
+            data.name,
+            data.practice
+        )
+        return doctor;
+    })
+}
+
+export function getPatient(phone: string) {
+    if(!PHONE_REGEX.test(phone)) {
+        console.log("Invalid phone number: " + phone);
+        return false;
+    }
+
+    const reference = ref(database, PATIENTS_PATH + phone)
+    onValue(reference, (snapshot) => {
+        const data = snapshot.val();
+        if (data == null) return null;
+
+        const patient = new Patient(
+            phone,
+            data.email,
+            data.encryptedPassword,
+            data.gpPhone,
+            data.height,
+            data.name,
+            data.policyNumber,
+            data.sex,
+            data.weight
+        );
+        return patient;
+    })
+}
+
+export function getAllPatientsOfDoctor(phone: string) {
+
+}
