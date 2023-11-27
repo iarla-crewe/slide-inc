@@ -1,49 +1,45 @@
 package com.slide.healthai
 
-// ... [other imports]
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.FirebaseApp.initializeApp
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.slide.healthai.UI.LoginActivity
 import com.slide.healthai.databinding.ActivityWelcomeBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding
-    private lateinit var database: DatabaseReference
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Initialize Firebase
-        initializeApp(this)
+        auth = FirebaseAuth.getInstance()
 
-        // Specify the doctor's phone number
-        val doctorPhoneNumber = "+353873459811" // Replace with actual doctor's phone number
+        // Other initialization code
+    }
 
-        // Create a reference to the doctor's patients in Firebase Realtime Database
-        database = FirebaseDatabase.getInstance("")
-            .getReference("doctors")
-            .child(doctorPhoneNumber)
-            .child("patients")
+    override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            // User is signed in
+            updateUI(currentUser) // Implement this method to handle UI update
+        } else {
+            // No user is signed in
+            // Redirect to LoginActivity
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish() // Finish this activity so the user can't navigate back to it
+        }
+    }
 
-        // Read from the database
-        database.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val value = dataSnapshot.value
-                Log.d("TAG", "Value is: $value")
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                // Failed to read value
-                Log.w("TAG", "Failed to read value.", databaseError.toException())
-            }
-        })
+    private fun updateUI(user: FirebaseUser?) {
+        // Update your UI with the information of the signed-in user
+        // This could be showing user info, redirecting to another activity, etc.
     }
 }
