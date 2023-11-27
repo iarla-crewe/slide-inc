@@ -4,45 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WelcomeActivity">
-
-
-    <View
-        android:id="@+id/banner"
-        android:layout_width="406dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="550dp"
-        android:background="#A0A29F"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-    </View>
+    tools:context=".UI.SupportActivity">
 
     <TextView
-        android:id="@+id/SupportPage"
-        android:layout_width="135dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="15dp"
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Support Page"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/support_title"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toTopOf="@id/tvSubheading"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.438"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="300px"
+    <TextView
+        android:id="@+id/tvSubheading"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:gravity="center"
+        android:text="@string/support_subheading"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="581dp" />
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilIssue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundMode="filled"
+        android:layout_marginHorizontal="64dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tvSubheading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" >
+
+        <EditText
+            android:id="@+id/etIssue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/issue_description"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

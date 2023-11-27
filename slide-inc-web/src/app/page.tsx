@@ -21,8 +21,8 @@ const Home: React.FC = () => {
           </Link>
         </div>
         <p className="text-lg mt-6">
-          New to HealthAI?{' '}
-          <Link href="./registration">
+          New to HealthAI?
+          <Link href="./signup">
             <span className="text-blue-500">Create an Account</span>
           </Link>
         </p>
