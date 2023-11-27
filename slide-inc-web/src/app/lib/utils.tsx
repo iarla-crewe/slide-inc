@@ -1,8 +1,8 @@
-import * as bcrypt from 'bcrypt';
+import * as CryptoJS from "crypto-js"
 
 export async function encryptPassword(password: string): Promise<string> {
     const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    const hashedPassword = CryptoJS.SHA256(password + saltRounds).toString();
     return hashedPassword;
 }
 
