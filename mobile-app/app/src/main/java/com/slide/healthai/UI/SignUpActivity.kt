@@ -3,6 +3,7 @@ package com.slide.healthai.UI
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.androidbrowserhelper.playbilling.provider.PaymentActivity
 import com.slide.healthai.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {

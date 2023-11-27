@@ -12,12 +12,15 @@ data class InsuranceCompanyDetails(
     val website: String
 )
 
-data class PatientDetails(
-    val name: String,
-    val age: Int,
-    val gender: String,
-    val height: Double,
-    val weight: Double,
-    val medicalHistory: String
+data class Patient(
+    val email: String = "",
+    val encryptedPassword: String = "",
+    val gpPhone: String = "",
+    val height: Int = 0,
+    val name: String = "",
+    val policyNumber: Long = 0L,
+    val sex: Boolean = false,
+    val weight: Int = 0
 )
+
 
