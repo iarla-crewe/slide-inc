@@ -13,12 +13,12 @@ const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 export async function createDoctor(phone: string, email: string, name: string, practice: string, password: string) {
     if(!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone)
-        return false
+        return null;
     }
 
     if(!EMAIL_REGEX.test(email)) {
         console.log("Invalid email: " + email)
-        return false
+        return null;
     }
 
     const reference = ref(database, DOCTORS_PATH + phone)
@@ -31,7 +31,7 @@ export async function createDoctor(phone: string, email: string, name: string, p
         practice: practice
     })
     
-    return true
+    return true;
 }
 
 export async function createPatient(
@@ -39,12 +39,12 @@ export async function createPatient(
 ) {
     if(!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone)
-        return false
+        return null;
     }
 
     if(!EMAIL_REGEX.test(email)) {
         console.log("Invalid email: " + email)
-        return false
+        return null;
     }
     
     const reference = ref(database, PATIENTS_PATH + phone)
@@ -63,13 +63,13 @@ export async function createPatient(
         weight: weight
     })
 
-    return plainTextPassword
+    return plainTextPassword;
 }
 
 export function getDoctor(phone: string) {
     if(!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone);
-        return false;
+        return null;
     }
 
     const reference = ref(database, DOCTORS_PATH + phone)
@@ -91,7 +91,7 @@ export function getDoctor(phone: string) {
 export function getPatient(phone: string) {
     if(!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone);
-        return false;
+        return null;
     }
 
     const reference = ref(database, PATIENTS_PATH + phone)
@@ -115,5 +115,23 @@ export function getPatient(phone: string) {
 }
 
 export function getAllPatientsOfDoctor(phone: string) {
+    if(!PHONE_REGEX.test(phone)) {
+        console.log("Invalid phone number: " + phone);
+        return null;
+    }
 
+    const reference = ref(database, PATIENTS_PATH)
+    onValue(reference, (snapshot) => {
+        const data = snapshot.val();
+        if (data == null) return null;
+        
+        let patients: Object[] = [];
+        for(let index of Object.keys(data)) {
+            let patient = data[index];
+            if(patient.gpPhone === phone) patients.push(patient);
+        };
+
+        if (patients.length === 0) return null;
+        return patients;
+    })
 }
