@@ -1,7 +1,7 @@
 package com.slide.healthai.UI
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.slide.healthai.databinding.ActivitySupportBinding
 
 class SupportActivity : AppCompatActivity() {

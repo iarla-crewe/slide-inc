@@ -19,9 +19,13 @@
     <!-- Home Page -->
     <string name="home_title">HealthAI</string>
 
-    <!-- Support Pages -->
+    <!-- Professional Help Page -->
     <string name="professional_help_title">Get Professional Help</string>
+
+    <!-- Support Page -->
     <string name="support_title">Support</string>
+    <string name="support_subheading">Any issues using the app? Let us help.</string>
+    <string name="issue_description">Please describe your issue</string>
 
     <!-- Review Page -->
     <string name="review_title">Leave a Review</string>
