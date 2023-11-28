@@ -1,6 +1,7 @@
 import React from 'react';
 import Patient from './patient';
 import '../globals.css'
+import Link from 'next/link';
 
 const patients = [
   { name: 'Eric Afrifa', sex: 'Male', dob: '14/04/2002' },
@@ -17,7 +18,10 @@ const patients = [
 const PatientList = () => {
   return (
     <div className='patientList' >
-      <h2>Patients List</h2>
+      <h2>Patients List:</h2>
+      <Link href="/editMenu">
+          <span className="edit-button">Add Patient</span>
+        </Link>
       {patients.map((patient, index) => (
         <Patient key={index} {...patient} />
       ))}

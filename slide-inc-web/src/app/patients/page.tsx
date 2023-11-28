@@ -16,7 +16,7 @@ export default function Patients() {
 
   return (
     <div className={styles.patientList} >
-      <h2>Patients List</h2>
+      <h2>Patients List</h2>         
       {patients.map((patient, index) => (
         <Patient key={index} {...patient} />
       ))}

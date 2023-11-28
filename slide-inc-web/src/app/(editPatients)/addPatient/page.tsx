@@ -42,7 +42,7 @@ export default function AddPatient() {
             <Header />
             <main className='flex flex-col items-center justify-center min-h-screen'>
                 <div>
-                    <h1> Register </h1>
+                    <h1> Add Patient </h1>
 
                     <form onSubmit={handleSubmit} className='max-w md mx-auto p-4 bg-white shadow-md rounded-lg'>
                         <div className='mb-4'>
