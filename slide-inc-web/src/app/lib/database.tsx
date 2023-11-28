@@ -1,5 +1,5 @@
 import { ref, set, onValue } from "firebase/database"
-import { database } from "../firebaseConfig.js"
+import { database } from "../firebaseConfig"
 import { encryptPassword } from "./utils"
 import { randomBytes } from "crypto"
 import { Doctor, Patient } from "./model"
