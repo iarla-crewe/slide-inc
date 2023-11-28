@@ -44,6 +44,15 @@ html body{
   height: 100%;
 }
 
+.patientList {
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: bold;
+  font-size: 22px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .patientBox {
   justify-content: space-between;
   border: 1px solid #ccc;

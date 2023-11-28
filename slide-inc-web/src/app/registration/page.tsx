@@ -1,9 +1,14 @@
 import React from 'react';
+import Header from '../components/header';
 
-export default function Registration() {
+const registration: React.FC = () => {
   return (
+  
     <div>
-      <h1> Register </h1>
+      <Header/>
+      
     </div>
   );
 }
+
+export default registration;
