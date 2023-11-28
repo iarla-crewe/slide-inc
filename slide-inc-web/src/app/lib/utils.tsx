@@ -1,4 +1,4 @@
-import * as CryptoJS from "crypto-js"
+import CryptoJS from "crypto-js";
 
 export async function encryptPassword(password: string): Promise<string> {
     const saltRounds = 10;
