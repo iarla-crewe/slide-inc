@@ -10,7 +10,7 @@ const PATIENTS_PATH = "patients/"
 const PHONE_REGEX = /^\+\d*$/
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
-export async function createDoctor(phone: string, email: string, name: string, practice: string, password: string) {
+export async function createDoctor(phone: string, email: string, name: string, practice: string) {
     if(!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone)
         return null;
@@ -22,12 +22,10 @@ export async function createDoctor(phone: string, email: string, name: string, p
     }
 
     const reference = ref(database, DOCTORS_PATH + phone)
-    const encryptedPassword = await encryptPassword(password)
 
     set(reference, {
         email: email,
         name: name,
-        encryptedPassword: encryptedPassword,
         practice: practice
     })
     
@@ -49,13 +47,9 @@ export async function createPatient(
     
     const reference = ref(database, PATIENTS_PATH + phone)
 
-    const plainTextPassword = randomBytes(10).toString("hex")
-    const encryptedPassword = await encryptPassword(plainTextPassword)
-
     set(reference, {
         email: email,
         name: name,
-        encryptedPassword: encryptedPassword,
         gpPhone: gpPhone,
         policyNumber: policyNumber,
         sex: sex,
@@ -63,7 +57,7 @@ export async function createPatient(
         weight: weight
     })
 
-    return plainTextPassword;
+    return true;
 }
 
 export function getDoctor(phone: string) {
@@ -131,7 +125,7 @@ export function getAllPatientsOfDoctor(phone: string) {
             if(patient.gpPhone === phone) patients.push(patient);
         };
 
-        if (patients.length === 0) return null;
+        if (patients.length === 0 || patients == undefined) return null;
         return patients;
     })
 }

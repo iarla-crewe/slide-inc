@@ -1,8 +1,14 @@
 import React from 'react';
 import Patient from '../components/patient';
 import styles from './Patients.module.css'
+import { getAllPatientsOfDoctor } from '../lib/database';
 
 export default function Patients() {
+  const doctorPhone = "+353873459811"
+
+  const foo = getAllPatientsOfDoctor(doctorPhone);
+  console.log(foo);
+
   const patients = [
     { name: 'Eric Afrifa', sex: 'Male', dob: '14/04/2002' },
     {name: 'Scott Geaney', sex: 'Male', dob: '06/06/2002'},

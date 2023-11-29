@@ -23,13 +23,13 @@ export default function PatientDetails({ params }: { params: { name: string }}) 
             <div className="patientBox">
             <div className="patientInfo">
                 <p className="patientText">
-                <span className="label">Name:</span> {patientInfo.name}
+                <span className="label">Name: {patientInfo.name} </span>
                 </p>
                 <p className="patientText">
-                <span className="label">Sex:</span> {patientInfo.sex}
+                <span className="label">Sex: {patientInfo.sex} </span>
                 </p>
                 <p className="patientText">
-                <span className="label">DOB:</span> {patientInfo.dob}
+                <span className="label">DOB: {patientInfo.dob} </span>
                 </p>
             </div>
             </div>
