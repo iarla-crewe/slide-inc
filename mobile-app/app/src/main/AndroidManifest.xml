@@ -45,7 +45,13 @@
             android:name=".UI.PaymentActivity"
             android:label="Payment Activity"/>
 
-<meta-data
+        <activity android:name=".UI.PatientDetailsActivity">
+            <!-- Any additional configuration for the activity -->
+        </activity>
+
+
+
+        <meta-data
     android:name="com.google.android.gms.wallet.api.enabled"
     android:value="true" />
 

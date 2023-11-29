@@ -30,4 +30,9 @@
 
     <!-- Review Page -->
     <string name="review_title">Leave a Review</string>
+
+    <!-- Patient Details-->
+    <string name="user_height">Height: %1$s</string>
+    <string name="user_weight">Weight: %1$s</string>
+
 </resources>
