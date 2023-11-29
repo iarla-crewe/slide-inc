@@ -5,6 +5,7 @@
     <string name="welcome_title">Welcome to HealthAI</string>
     <string name="login">Login</string>
     <string name="sign_up">Sign Up</string>
+    <string name="logout">Logout</string>
 
     <!-- Login and SignUp Activities -->
     <string name="first_name">First Name</string>

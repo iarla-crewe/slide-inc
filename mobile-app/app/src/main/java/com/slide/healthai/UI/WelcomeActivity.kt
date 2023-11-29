@@ -19,8 +19,22 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+        // Setting up the logout button click listener
+        binding.logoutButton.setOnClickListener { // Replace 'logoutButton' with your actual button ID
+            FirebaseAuth.getInstance().signOut()
+            navigateToLogin()
+        }
+
         // Other initialization code
     }
+
+    private fun navigateToLogin() {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish() // To close the MainActivity after logging out
+    }
+
+
 
     override fun onStart() {
         super.onStart()
@@ -32,9 +46,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             // No user is signed in
             // Redirect to LoginActivity
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish() // Finish this activity so the user can't navigate back to it
+            navigateToLogin()
         }
     }
 
