@@ -14,14 +14,11 @@ export default function PatientDetails({ params }: { params: { name: string }}) 
         healthScore: '90%',
     };
 
-    getAllPatientsOfDoctor("+353873459811");
-    // getDoctor("+000000000000");
-
     return (
         <div className="container">
         <div className="patient-details">
-            <Link href="/patientList">
-            <span className="back-button">Back</span>
+            <Link href="/patients">
+                <span className="back-button">Back</span>
             </Link>
             <div className="patientBox">
             <div className="patientInfo">
