@@ -1,13 +1,15 @@
 import React from 'react';
 import Patient from '../components/patient';
-import styles from './Patients.module.css'
-import { getAllPatientsOfDoctor } from '../lib/database';
+
+import { createPatient, getAllPatientsOfDoctor } from '../lib/database';
 
 export default function Patients() {
   const doctorPhone = "+353873459811"
 
   const foo = getAllPatientsOfDoctor(doctorPhone);
   console.log(foo);
+  console.log("foo");
+  createPatient("+353873459811", "iarla.crewe@gmail.com", "+3531234567", "foo", 123, true, 180, 80);
 
   const patients = [
     { name: 'Eric Afrifa', sex: 'Male', dob: '14/04/2002' },
@@ -21,7 +23,7 @@ export default function Patients() {
   ];
 
   return (
-    <div className={styles.patientList} >
+    <div className="patientList" >
       <h2>Patients List</h2>
       {patients.map((patient, index) => (
         <Patient key={index} {...patient} />
