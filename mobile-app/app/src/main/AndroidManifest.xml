@@ -40,13 +40,17 @@
                 android:name=".UI.SignUpActivity"
                 android:exported="true" />
 
+
+        <activity
+            android:name=".UI.PaymentActivity"
+            android:label="Payment Activity"/>
+
 <meta-data
     android:name="com.google.android.gms.wallet.api.enabled"
     android:value="true" />
 
 
 
-        </application>
 
-
+    </application>
 </manifest>
