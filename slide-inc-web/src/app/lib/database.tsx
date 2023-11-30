@@ -1,7 +1,5 @@
-import { ref, set, onValue } from "firebase/database"
+import { ref, set, get, onValue } from "firebase/database"
 import { database } from "../firebaseConfig"
-import { encryptPassword } from "./utils"
-import { randomBytes } from "crypto"
 import { Doctor, Patient } from "./model"
 
 const DOCTORS_PATH = "doctors/"
@@ -10,15 +8,15 @@ const PATIENTS_PATH = "patients/"
 const PHONE_REGEX = /^\+\d*$/
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
-export async function createDoctor(phone: string, email: string, name: string, practice: string) {
+export function createDoctor(phone: string, email: string, name: string, practice: string) : boolean {
     if(!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone)
-        return null;
+        return false;
     }
 
     if(!EMAIL_REGEX.test(email)) {
         console.log("Invalid email: " + email)
-        return null;
+        return false;
     }
 
     const reference = ref(database, DOCTORS_PATH + phone)
@@ -32,17 +30,17 @@ export async function createDoctor(phone: string, email: string, name: string, p
     return true;
 }
 
-export async function createPatient(
-    gpPhone: string, phone: string, email: string, name: string, policyNumber: number, sex: boolean, height: number, weight: number
-) {
+export function createPatient(
+    gpPhone: string, phone: string, email: string, name: string, policyNumber: number, sex: boolean, height: number, weight: number, dob: string
+) : boolean {
     if(!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone)
-        return null;
+        return false;
     }
 
     if(!EMAIL_REGEX.test(email)) {
         console.log("Invalid email: " + email)
-        return null;
+        return false;
     }
     
     const reference = ref(database, PATIENTS_PATH + phone)
@@ -54,78 +52,102 @@ export async function createPatient(
         policyNumber: policyNumber,
         sex: sex,
         height: height,
-        weight: weight
+        weight: weight,
+        dob: dob
     })
 
     return true;
 }
 
-export function getDoctor(phone: string) {
+export async function getDoctor(phone: string) : Promise<Doctor | null> {
     if(!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone);
         return null;
     }
 
-    const reference = ref(database, DOCTORS_PATH + phone)
-    onValue(reference, (snapshot) => {
+    const reference = ref(database, DOCTORS_PATH + phone);
+    const result = get(reference).then((snapshot) => {
         const data = snapshot.val()
         if (data == null) return null;
     
-        const doctor = new Doctor(
+        return new Doctor(
             phone,
             data.email,
-            data.encryptedPassword,
             data.name,
             data.practice
         )
-        return doctor;
-    })
+    }).catch((error) => {
+        console.log('Could not read data from database: ' + error);
+        return null;
+    });
+
+    return result;
 }
 
-export function getPatient(phone: string) {
+export async function getPatient(phone: string) : Promise<Patient | null> {
     if(!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone);
         return null;
     }
 
     const reference = ref(database, PATIENTS_PATH + phone)
-    onValue(reference, (snapshot) => {
+    const result = get(reference).then((snapshot) => {
         const data = snapshot.val();
         if (data == null) return null;
 
-        const patient = new Patient(
+        return new Patient(
             phone,
             data.email,
-            data.encryptedPassword,
             data.gpPhone,
             data.height,
             data.name,
             data.policyNumber,
             data.sex,
-            data.weight
+            data.weight,
+            data.dob
         );
-        return patient;
+    }).catch((error) => {
+        console.log('Could not read data from database: ' + error);
+        return null;
     })
+
+    return result;
 }
 
-export function getAllPatientsOfDoctor(phone: string) {
+export async function getAllPatientsOfDoctor(phone: string) : Promise<Patient[]> {
     if(!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone);
-        return null;
+        return [];
     }
 
     const reference = ref(database, PATIENTS_PATH)
-    onValue(reference, (snapshot) => {
+    const result = get (reference).then((snapshot) => {
         const data = snapshot.val();
-        if (data == null) return null;
+        if (data == null) return [];
         
-        let patients: Object[] = [];
+        let patients: Patient[] = [];
         for(let index of Object.keys(data)) {
-            let patient = data[index];
-            if(patient.gpPhone === phone) patients.push(patient);
+            if(data[index].gpPhone !== phone) continue;
+
+            const patient = new Patient(
+                index,
+                data[index].email,
+                data[index].gpPhone,
+                data[index].height,
+                data[index].name,
+                data[index].policyNumber,
+                data[index].sex,
+                data[index].weight,
+                data[index].dob
+            )
+            patients.push(patient);
         };
 
-        if (patients.length === 0 || patients == undefined) return null;
         return patients;
+    }).catch((error) => {
+        console.log('Could not read data from database: ' + error);
+        return [];
     })
+
+    return result;
 }

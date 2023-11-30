@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.slide.healthai">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,14 +16,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthAI"
         tools:targetApi="31">
+
+
         <activity
-            android:name=".SupportActivity"
+
+            android:name=".UI.ProfessionalHelpActivity"
             android:exported="false" />
-        <activity
-            android:name=".ProfessionalHelpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".WelcomeActivity"
+
+        <activity android:name=".UI.WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,14 +31,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+            <activity
+                android:name=".UI.LoginActivity"
+                android:exported="true" />
+
+            <activity
+                android:name=".UI.SignUpActivity"
+                android:exported="true" />
+
+
         <activity
-            android:name=".LoginActivity"
-            android:label="Login Activity"/>
-        <activity
-            android:name=".SignUpActivity"
-            android:label="Sign Up Activity"/>
-        <activity
-            android:name=".PaymentActivity"
+            android:name=".UI.PaymentActivity"
             android:label="Payment Activity"/>
+
+        <activity android:name=".UI.PatientDetailsActivity">
+            <!-- Any additional configuration for the activity -->
+        </activity>
+
+
+
+        <meta-data
+    android:name="com.google.android.gms.wallet.api.enabled"
+    android:value="true" />
+
+
+
+
     </application>
 </manifest>
