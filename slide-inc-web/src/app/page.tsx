@@ -4,26 +4,23 @@ import Header from './components/header';
 
 const Home: React.FC = () => {
   return (
-  
     <div>
       <Header/>
-      <main className="flex flex-col items-center justify-center min-h-screen">
-        <h1 className="text-5xl font-bold mb-8">Welcome to HealthAI</h1>
-        <p className="text-xl text-center mb-8">
+      <main>
+        <h1>Welcome to HealthAI</h1>
+        <p>
           Unlock the Power of AI in Healthcare
         </p>
-        <div className="flex flex-col space-y-4">
-          <Link href="./patientList">
-            <span className="google-login-button">
-              <span className="button-icon" />
-              Login with Google
-            </span>
+        <p>
+          Already have an account?
+          <Link href="./signin">
+            <span>Sign In</span>
           </Link>
-        </div>
-        <p className="text-lg mt-6">
+        </p>
+        <p>
           New to HealthAI?
           <Link href="./signup">
-            <span className="text-blue-500">Create an Account</span>
+            <span>Create an Account</span>
           </Link>
         </p>
       </main>

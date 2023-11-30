@@ -7,7 +7,7 @@ import Header from '@/app/components/header';
 
 export default function AddPatient() {
 
-    let gpEmail = "create@user.com"
+    let gpPhone = "+353871234567"
 
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
@@ -16,13 +16,14 @@ export default function AddPatient() {
     const [sex, setSex] = useState('');
     const [height, setHeight] = useState('');
     const [weight, setWeight] = useState('');
+    const [dob, setDob] = useState('');
 
 
     const handleSubmit = async (event: any) => {
         event.preventDefault();
 
-        // Execute a function with the collected data
-        const added = await createPatient(gpEmail, phone, email, name, parseInt(policyNumber), Boolean(sex), parseFloat(height), parseFloat(weight));
+        // TODO - Replace dummy data and add input validation
+        const added = createPatient(gpPhone, phone, email, name, Number(policyNumber), true, Number(height), Number(weight), dob);
 
         if (added) {
             setEmail('');
@@ -155,6 +156,22 @@ export default function AddPatient() {
                                     autoComplete="Weight"
                                     value={weight}
                                     onChange={(e) => setWeight(e.target.value)}
+                                    required
+                                    className="block w-full rounded-md border-0 bg-white py-1.5 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                                />
+                            </div>
+
+                            <label htmlFor="dob" className="block text-sm font-medium leading-6 text-gray-800">
+                                Date of Birth
+                            </label>
+                            <div className="mt-2">
+                                <input
+                                    id="dob"
+                                    name="dob"
+                                    type="text"
+                                    autoComplete="Weight"
+                                    value={weight}
+                                    onChange={(e) => setDob(e.target.value)}
                                     required
                                     className="block w-full rounded-md border-0 bg-white py-1.5 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                                 />

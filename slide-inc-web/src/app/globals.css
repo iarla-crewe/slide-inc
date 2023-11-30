@@ -99,11 +99,6 @@ html body{
   background-color: #003f8f;
 }
 
-.patientDetailsContainer {
-  display: flex;
-  flex-direction: row;
-}
-
 .patientInfo {
   margin-right: 20px;
 }
