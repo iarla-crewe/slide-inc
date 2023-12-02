@@ -38,19 +38,3 @@ def predict_lung_cancer(model, preprocessor, new_patient_data):
     new_patient_df = preprocessor.transform(new_patient_df)
     probabilities = model.predict_proba(new_patient_df)[:, 1]
     return probabilities[0]
-
-
-# Load the lung cancer model during app initialization
-lung_cancer_model, lung_cancer_preprocessor = load_lung_cancer_model()
-
-
-# Define an endpoint to receive new patient data and make predictions
-@app.route('/predictLung', methods=['POST'])
-def predict_lung_cancer_endpoint():
-    try:
-        data = request.get_json()
-        prediction = predict_lung_cancer(lung_cancer_model, lung_cancer_preprocessor, data)
-        return jsonify({'prediction': f"{prediction * 100:.0f}%"})
-    except Exception as e:
-        return jsonify({'error': str(e)})
-
