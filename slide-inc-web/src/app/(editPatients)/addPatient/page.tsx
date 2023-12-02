@@ -1,9 +1,11 @@
 'use client'
 
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { createPatient } from '@/app/lib/database';
 import Header from '@/app/components/header';
+import { auth } from '@/app/firebase';
 
 export default function AddPatient() {
 
@@ -18,14 +20,20 @@ export default function AddPatient() {
     const [weight, setWeight] = useState('');
     const [dob, setDob] = useState('');
 
+    const signUserUp = () => {
+        createUserWithEmailAndPassword(auth, email, dob);
+    };
 
-    const handleSubmit = async (event: any) => {
+    const handleSubmit = (event: any) => {
         event.preventDefault();
 
+        //DOB format = 'YYYY-MM-DD'
         // TODO - Replace dummy data and add input validation
-        const added = createPatient(gpPhone, phone, email, name, Number(policyNumber), true, Number(height), Number(weight), dob);
+        const added = createPatient(gpPhone, phone, email, name, Number(policyNumber), Boolean(sex), Number(height), Number(weight), dob);
 
         if (added) {
+            signUserUp()
+
             setEmail('');
             setPhone('');
             setName('');
@@ -33,6 +41,7 @@ export default function AddPatient() {
             setSex('');
             setHeight('');
             setWeight('');
+            setDob('')
 
             alert("Patient added to database!")
         }
@@ -135,7 +144,7 @@ export default function AddPatient() {
                                 <input
                                     id="height"
                                     name="height"
-                                    type="text"
+                                    type="number"
                                     autoComplete="Height"
                                     value={height}
                                     onChange={(e) => setHeight(e.target.value)}
@@ -152,7 +161,7 @@ export default function AddPatient() {
                                 <input
                                     id="weight"
                                     name="weight"
-                                    type="text"
+                                    type="number"
                                     autoComplete="Weight"
                                     value={weight}
                                     onChange={(e) => setWeight(e.target.value)}
@@ -168,20 +177,20 @@ export default function AddPatient() {
                                 <input
                                     id="dob"
                                     name="dob"
-                                    type="text"
-                                    autoComplete="Weight"
-                                    value={weight}
+                                    type="date"
+                                    autoComplete="DD/MM/YYYY"
+                                    value={dob}
                                     onChange={(e) => setDob(e.target.value)}
                                     required
                                     className="block w-full rounded-md border-0 bg-white py-1.5 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                                 />
                             </div>
-
-                            <div className='text-center'>
+                            <div>
                                 <button
                                     type='submit'
-                                    className='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg'>
-                                    Submit
+                                    className="disabled:opacity-40 flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                                >
+                                    Sign Up
                                 </button>
                             </div>
                         </div>
