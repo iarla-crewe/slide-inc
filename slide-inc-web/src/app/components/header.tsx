@@ -24,7 +24,6 @@ const Header: React.FC = () => {
       </div>
     </header>
   )
-
 }
 
 export default Header;
