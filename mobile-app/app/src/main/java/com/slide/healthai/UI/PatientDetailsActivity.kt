@@ -81,6 +81,8 @@ class PatientDetailsActivity : AppCompatActivity() {
         }
     }
 
+    //adding a comment to test git
+
     private fun showNoData() {
         binding.tvUserName.text = "No Name"
         binding.tvUserEmail.text = "No Email"
