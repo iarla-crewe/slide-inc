@@ -34,5 +34,20 @@
     <!-- Patient Details-->
     <string name="user_height">Height: %1$s</string>
     <string name="user_weight">Weight: %1$s</string>
+    <string name="payment">Payment</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="first_name_payment">First Name</string>
+    <string name="last_name_payment">Last Name</string>
+    <string name="country">Country</string>
+    <string name="city">City</string>
+    <string name="zip_code">Zip Code</string>
+    <string name="email_address">Email Address</string>
+    <string name="card_information">Card Information</string>
+    <string name="card_number">Card Number</string>
+    <string name="cvc">CVC</string>
+    <string name="month_and_year">Month and Year</string>
+    <string name="submit">Submit</string>
 
+
+    <!-- Payment page   -->
 </resources>
