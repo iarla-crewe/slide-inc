@@ -8,7 +8,7 @@
         android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logout"
+        android:text="@string/logout_button"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"/>
 
@@ -17,7 +17,7 @@
         android:id="@+id/labelUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name: "
+        android:text="@string/user_name"
         android:textSize="18sp"
         android:layout_below="@id/logoutButton"
         android:layout_marginTop="8dp"/>
@@ -34,7 +34,7 @@
         android:id="@+id/labelUserEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email: "
+        android:text="@string/user_email"
         android:textSize="18sp"
         android:layout_below="@id/tvUserName"
         android:layout_marginTop="8dp"/>
@@ -52,7 +52,7 @@
         android:id="@+id/labelUserHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Height: "
+        android:text="@string/user_height"
         android:textSize="18sp"
         android:layout_below="@id/tvUserEmail"
         android:layout_marginTop="8dp"/>
@@ -71,7 +71,7 @@
         android:id="@+id/labelUserWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Weight: "
+        android:text="@string/user_weight"
         android:textSize="18sp"
         android:layout_below="@id/tvUserHeight"
         android:layout_marginTop="8dp"/>

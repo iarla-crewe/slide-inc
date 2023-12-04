@@ -4,8 +4,6 @@
     <!-- Welcome Activity -->
     <string name="welcome_title">Welcome to HealthAI</string>
     <string name="login">Login</string>
-    <string name="sign_up">Sign Up</string>
-    <string name="logout">Logout</string>
 
     <!-- Login and SignUp Activities -->
     <string name="first_name">First Name</string>
@@ -32,7 +30,10 @@
     <string name="review_title">Leave a Review</string>
 
     <!-- Patient Details-->
-    <string name="user_height">Height: %1$s</string>
-    <string name="user_weight">Weight: %1$s</string>
+    <string name="user_height">Height: </string>
+    <string name="user_weight">Weight: </string>
+    <string name="user_name">Name: </string>
+    <string name="user_email">Email: </string>
+    <string name="logout_button">Logout</string>
 
 </resources>
