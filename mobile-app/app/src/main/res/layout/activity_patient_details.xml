@@ -85,6 +85,25 @@
         android:layout_toEndOf="@id/labelUserWeight"
         android:layout_alignTop="@id/labelUserWeight"/>
 
+    <!-- TextView for the Gender label -->
+    <TextView
+        android:id="@+id/labelUserGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_gender"
+        android:textSize="18sp"
+        android:layout_below="@id/tvUserWeight"
+        android:layout_marginTop="8dp"/>
+
+    <!-- TextView for the Gender value -->
+    <TextView
+        android:id="@+id/tvUserGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_toEndOf="@id/labelUserGender"
+        android:layout_alignTop="@id/labelUserGender"/>
+
 
     <!-- Add more TextViews with labels for other details -->
 

@@ -49,51 +49,50 @@ class PatientDetailsActivity : AppCompatActivity() {
     private fun fetchPatientDetails() {
         val currentUser = auth.currentUser
         currentUser?.email?.let { email ->
-            // Start a query for the patient's email across all patient records
             databaseReference.child("patients")
                 .orderByChild("email")
                 .equalTo(email)
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         if (dataSnapshot.exists()) {
-                            // Since email is unique, we can expect only one record
                             dataSnapshot.children.firstOrNull()?.let { snapshot ->
-                                // Get patient details from the snapshot
                                 val name = snapshot.child("name").getValue(String::class.java) ?: "No Name"
                                 val height = snapshot.child("height").getValue(Int::class.java)?.toString() ?: "No Height"
                                 val weight = snapshot.child("weight").getValue(Int::class.java)?.toString() ?: "No Weight"
-                                // ... fetch other details
+                                val genderBoolean = snapshot.child("sex").getValue(Boolean::class.java)
+                                val gender = if (genderBoolean == true) "Male" else "Female"
 
                                 // Update UI with patient details
                                 binding.tvUserName.text = name
                                 binding.tvUserEmail.text = email
-                                binding.tvUserHeight.text = height
-                                binding.tvUserWeight.text = weight
+                                binding.tvUserHeight.text = "Height: $height"
+                                binding.tvUserWeight.text = "Weight: $weight"
+                                binding.tvUserGender.text = "Gender: $gender"
                             }
                         } else {
-                            // Handle the case where the patient does not exist
-                            binding.tvUserName.text = "No Name"
-                            binding.tvUserEmail.text = "No Email"
-                            binding.tvUserHeight.text = "Height: --"
-                            binding.tvUserWeight.text = "Weight: --"
+                            showNoData()
                         }
                     }
 
                     override fun onCancelled(databaseError: DatabaseError) {
-                        // Handle error if the read failed
-                        binding.tvUserName.text = "Error"
-                        binding.tvUserEmail.text = "Error"
-                        binding.tvUserHeight.text = "Error"
-                        binding.tvUserWeight.text = "Error"
+                        showNoData()
                     }
                 })
         }
     }
 
+    private fun showNoData() {
+        binding.tvUserName.text = "No Name"
+        binding.tvUserEmail.text = "No Email"
+        binding.tvUserHeight.text = "Height: --"
+        binding.tvUserWeight.text = "Weight: --"
+        binding.tvUserGender.text = "Gender: --"
+    }
+
     private fun navigateToLogin() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
-        finish() // Close this activity
+        finish()
     }
 
     // ChatGPT integration
