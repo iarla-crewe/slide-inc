@@ -40,7 +40,7 @@ class PatientDetailsActivity : AppCompatActivity() {
 
         binding.logoutButton.setOnClickListener {
             auth.signOut()
-            navigateToWelcome()
+            navigateToLogin()
         }
 
         fetchPatientDetails()
@@ -90,8 +90,8 @@ class PatientDetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun navigateToWelcome() {
-        val intent = Intent(this, WelcomeActivity::class.java)
+    private fun navigateToLogin() {
+        val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish() // Close this activity
     }
