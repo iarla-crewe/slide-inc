@@ -4,6 +4,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 # Load the model
 def load_model():
+
     heart_data = pd.read_csv('Heart_Disease_Prediction.csv')
     X = heart_data.drop('Heart Disease', axis=1)
     y = heart_data['Heart Disease']
