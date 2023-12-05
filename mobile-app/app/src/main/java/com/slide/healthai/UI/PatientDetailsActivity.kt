@@ -28,6 +28,11 @@ class PatientDetailsActivity : AppCompatActivity() {
             auth.signOut()
             navigateToWelcome()
         }
+        binding.helpbutton.setOnClickListener {
+            startActivity(
+                Intent(this, ProfessionalHelpActivity::class.java)
+            )
+        }
 
         fetchPatientDetails()
     }
@@ -79,6 +84,8 @@ class PatientDetailsActivity : AppCompatActivity() {
     private fun navigateToWelcome() {
         val intent = Intent(this, WelcomeActivity::class.java)
         startActivity(intent)
+
         finish() // Close this activity
     }
+
 }

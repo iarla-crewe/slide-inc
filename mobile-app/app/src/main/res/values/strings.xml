@@ -34,6 +34,9 @@
     <!-- Patient Details-->
     <string name="user_height">Height: %1$s</string>
     <string name="user_weight">Weight: %1$s</string>
+    <string name="help_button">Help</string>
+
+    <!-- Payment info   -->
     <string name="payment">Payment</string>
     <string name="personal_information">Personal Information</string>
     <string name="first_name_payment">First Name</string>
@@ -49,5 +52,6 @@
     <string name="submit">Submit</string>
 
 
-    <!-- Payment page   -->
+
+
 </resources>

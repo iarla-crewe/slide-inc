@@ -102,6 +102,17 @@
         android:textSize="18sp" />
 
 
+    <Button
+        android:id="@+id/helpbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="652dp"
+        android:layout_marginEnd="159dp"
+        android:text="@string/help_button" />
+
+
     <!-- Add more TextViews with labels for other details -->
 
 </RelativeLayout>
