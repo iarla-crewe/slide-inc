@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="Name: "
+        android:text="Name:"
         android:textSize="18sp"
         android:layout_below="@id/logoutButton"
         android:layout_marginTop="8dp"/>
@@ -27,67 +27,79 @@
         android:id="@+id/tvUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/labelUserName"
         android:layout_alignTop="@id/labelUserName"
-        android:textSize="18sp"/>
+        android:layout_marginStart="-52dp"
+        android:layout_marginTop="48dp"
+        android:layout_toEndOf="@id/labelUserName"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/labelUserEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
+        android:layout_below="@id/tvUserName"
+        android:layout_marginTop="49dp"
         android:text="Email: "
         android:textSize="18sp"
-        android:layout_below="@id/tvUserName"
-        android:layout_marginTop="8dp"/>
+        android:textStyle="bold" />
+
+    <!-- TextView for the Height label -->
+
+    <!-- TextView for the Height value -->
+
+    <!-- TextView for the Weight label -->
+
+    <!-- TextView for the Weight value -->
 
     <TextView
         android:id="@+id/tvUserEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/labelUserEmail"
         android:layout_alignTop="@id/labelUserEmail"
-        android:textSize="18sp"/>
+        android:layout_marginStart="-50dp"
+        android:layout_marginTop="36dp"
+        android:layout_toEndOf="@id/labelUserEmail"
+        android:textSize="18sp" />
 
-    <!-- TextView for the Height label -->
     <TextView
         android:id="@+id/labelUserHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
+        android:layout_below="@id/tvUserEmail"
+        android:layout_marginTop="77dp"
         android:text="Height: "
         android:textSize="18sp"
-        android:layout_below="@id/tvUserEmail"
-        android:layout_marginTop="8dp"/>
+        android:textStyle="bold" />
 
-    <!-- TextView for the Height value -->
     <TextView
         android:id="@+id/tvUserHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:layout_alignTop="@id/labelUserHeight"
+        android:layout_marginStart="-61dp"
+        android:layout_marginTop="50dp"
         android:layout_toEndOf="@id/labelUserHeight"
-        android:layout_alignTop="@id/labelUserHeight"/>
+        android:textSize="18sp" />
 
-    <!-- TextView for the Weight label -->
     <TextView
         android:id="@+id/labelUserWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
+        android:layout_below="@id/tvUserHeight"
+        android:layout_marginTop="88dp"
         android:text="Weight: "
         android:textSize="18sp"
-        android:layout_below="@id/tvUserHeight"
-        android:layout_marginTop="8dp"/>
+        android:textStyle="bold" />
 
-    <!-- TextView for the Weight value -->
     <TextView
         android:id="@+id/tvUserWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:layout_alignTop="@id/labelUserWeight"
+        android:layout_marginStart="-61dp"
+        android:layout_marginTop="55dp"
         android:layout_toEndOf="@id/labelUserWeight"
-        android:layout_alignTop="@id/labelUserWeight"/>
+        android:textSize="18sp" />
 
 
     <!-- Add more TextViews with labels for other details -->
