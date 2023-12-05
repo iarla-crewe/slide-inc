@@ -5,12 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <View
+        android:id="@+id/banner"
+        android:layout_width="410dp"
+        android:layout_height="60dp"
+
+        android:background="#A0A29F"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </View>
+
     <TextView
         android:id="@+id/paymentText"
         android:layout_width="135dp"
         android:layout_height="36dp"
         android:gravity="center"
-        android:text="@string/payment"
+        android:text="Payment"
         android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="@+id/banner"
@@ -21,135 +32,147 @@
     <TextView
         android:id="@+id/PersonalInfo"
         android:layout_width="191dp"
-        android:layout_height="34dp"
-        android:layout_marginEnd="108dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="124dp"
         android:text="@string/personal_information"
         android:textColor="#000000"
-        android:textSize="15sp"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="72dp" />
+        app:layout_constraintTop_toBottomOf="@+id/paymentText" />
 
-    <TextView
+    <EditText
         android:id="@+id/FirstName"
         android:layout_width="136dp"
-        android:layout_height="33dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="256dp"
         android:text="@string/first_name_payment"
         android:textColor="#000000"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="137dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/LastName"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/LastName"
-        android:layout_width="191dp"
-        android:layout_height="34dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="198dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/last_name_payment"
         android:textColor="#000000"
         android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/CityView"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="136dp" />
+        app:layout_constraintTop_toBottomOf="@+id/PersonalInfo" />
 
-    <TextView
+    <EditText
         android:id="@+id/Country"
-        android:layout_width="191dp"
-        android:layout_height="34dp"
+        android:layout_width="189dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="204dp"
         android:text="@string/country"
         android:textColor="#000000"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="210dp" />
+        app:layout_constraintTop_toBottomOf="@+id/LastName"
+        tools:layout_editor_absoluteY="196dp" />
 
 
-    <TextView
+    <EditText
         android:id="@+id/CityView"
-        android:layout_width="191dp"
-        android:layout_height="34dp"
+        android:layout_width="184dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="12dp"
         android:text="@string/city"
         android:textColor="#000000"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="210dp" />
+        app:layout_constraintTop_toBottomOf="@+id/LastName"
+        tools:layout_editor_absoluteY="200dp" />
 
-    <TextView
+    <EditText
         android:id="@+id/ZipCode"
-        android:layout_width="191dp"
-        android:layout_height="34dp"
+        android:layout_width="189dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="204dp"
         android:text="@string/zip_code"
         android:textColor="#000000"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="285dp" />
+        app:layout_constraintTop_toBottomOf="@+id/Country"
+        tools:layout_editor_absoluteY="275dp" />
 
-    <TextView
+    <EditText
         android:id="@+id/EmailAddress"
-        android:layout_width="191dp"
-        android:layout_height="34dp"
+        android:layout_width="186dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="12dp"
         android:text="@string/email_address"
         android:textColor="#000000"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="285dp" />
+        app:layout_constraintTop_toBottomOf="@+id/CityView"
+        tools:layout_editor_absoluteY="275dp" />
 
     <TextView
         android:id="@+id/CardInfo"
         android:layout_width="191dp"
         android:layout_height="34dp"
-        android:layout_marginEnd="204dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="124dp"
         android:text="@string/card_information"
         android:textColor="#000000"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="348dp" />
+        app:layout_constraintTop_toBottomOf="@+id/EmailAddress" />
 
-    <TextView
+    <EditText
         android:id="@+id/CardNumber"
-        android:layout_width="191dp"
-        android:layout_height="34dp"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="204dp"
         android:text="@string/card_number"
         android:textColor="#000000"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="382dp" />
+        app:layout_constraintTop_toBottomOf="@+id/CardInfo"
+        tools:layout_editor_absoluteY="396dp" />
 
-    <TextView
+    <EditText
         android:id="@+id/CVCnumber"
-        android:layout_width="191dp"
-        android:layout_height="34dp"
-        android:layout_marginEnd="12dp"
+        android:layout_width="192dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="204dp"
         android:text="@string/cvc"
         android:textColor="#000000"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="382dp" />
+        app:layout_constraintTop_toBottomOf="@+id/CardNumber"
+        tools:layout_editor_absoluteY="510dp" />
 
-    <TextView
+    <EditText
         android:id="@+id/MonthAndYear"
-        android:layout_width="191dp"
-        android:layout_height="34dp"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="204dp"
         android:text="@string/month_and_year"
         android:textColor="#000000"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="428dp" />
+        app:layout_constraintTop_toBottomOf="@+id/CVCnumber"
+        tools:layout_editor_absoluteY="454dp" />
 
     <Button
         android:id="@+id/submitButton"
         android:layout_width="164dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="202dp"
+        android:layout_marginBottom="52dp"
         android:text="@string/submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"/>
-<!--        app:layout_constraintTop_toBottomOf="@+id/banner" />-->
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
