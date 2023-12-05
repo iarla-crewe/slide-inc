@@ -16,7 +16,7 @@ import org.json.JSONObject
 
 class ChatActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChatBinding
-    private val stringAPIKey = "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"
+    private val stringAPIKey = "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"
     private val stringURLEndPoint = "https://api.openai.com/v1/chat/completions"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +35,9 @@ class ChatActivity : AppCompatActivity() {
             Toast.makeText(this, "Please enter a message.", Toast.LENGTH_SHORT).show()
             return
         }
+
+        // Show generating message
+        binding.tvChatResponse.append("\nYou: $userMessage\nGenerating...")
 
         // Clear the input field for new message
         binding.etChatInput.text.clear()
@@ -60,6 +63,8 @@ class ChatActivity : AppCompatActivity() {
         val jsonObjectRequest = object : JsonObjectRequest(
             Request.Method.POST, stringURLEndPoint, jsonObject,
             Response.Listener { response ->
+                // Clear the generating message
+                binding.tvChatResponse.text = binding.tvChatResponse.text.toString().replace("Generating...", "")
                 handleChatResponse(response)
             },
             Response.ErrorListener { error ->
@@ -95,12 +100,11 @@ class ChatActivity : AppCompatActivity() {
                 .getJSONObject("message")
                 .getString("content")
 
-            // Append the message content to the TextView without the "Assistant:" prefix
-            binding.tvChatResponse.append("\n$messageContent")
+            // Append the message content to the TextView
+            binding.tvChatResponse.append("\nAssistant: $messageContent")
         } catch (e: Exception) {
             e.printStackTrace()
             Toast.makeText(this, "Failed to parse the response: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
         }
     }
-
 }
