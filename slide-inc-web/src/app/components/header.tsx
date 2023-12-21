@@ -10,7 +10,7 @@ const Header: React.FC = () => {
     required: true,
     onUnauthenticated() {
       redirect('/signin');
-    },
+    }
   });
   
   return (
