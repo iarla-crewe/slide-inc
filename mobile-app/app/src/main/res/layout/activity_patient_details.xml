@@ -104,6 +104,14 @@
         android:layout_toEndOf="@id/labelUserGender"
         android:layout_alignTop="@id/labelUserGender"/>
 
+    <Button
+        android:id="@+id/btnNavigateToChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chat"
+        android:layout_centerInParent="true"/>
+
+
 
     <!-- Add more TextViews with labels for other details -->
 
