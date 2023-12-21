@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React from "react";
 
+import style from './header.module.css'
+
 const Header: React.FC = () => {
   const session = useSession({
     required: true,
@@ -14,13 +16,13 @@ const Header: React.FC = () => {
   });
   
   return (
-    <header className="bg-gray-300 pb-6 pt-8 border-b border-gray-500">
+    <header className={style.header}>
       <Link href="./">
-      <h1 className="text-3xl font-bold text-black ml-4">HealthAI</h1>
+        <h1 className={style.h1}>HealthAI</h1>
       </Link>
-      <div className="p-8">
-        <div className='text-white'>{session?.data?.user?.email}</div>
-        <button className='text-white' onClick={() => signOut()}>Logout</button>
+      <div className={style.accountInfoDiv}>
+        <div className={style.email}>{session?.data?.user?.email}</div>
+        <button className={style.button} onClick={() => signOut()}>Logout</button>
       </div>
     </header>
   )
