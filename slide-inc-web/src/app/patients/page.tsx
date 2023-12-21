@@ -14,7 +14,7 @@ export default async function Patients() {
     <div>
       <Header/>
       <div className={style.patientList} >
-        <h2>Patients List</h2>
+        <h2 className={style.listHeader}>Patients List</h2>
         {patients.map((patient, index) => (
           <PatientView key={index} {...patient} />
         ))}

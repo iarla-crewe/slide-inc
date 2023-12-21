@@ -10,13 +10,13 @@ const PatientView = (patient: Patient) => {
     <div className={style.patientBox}>
       <div className={style.patientInfo}>
         <p className={style.patientText}>
-          <span className={style.label}>Name: {patient.name}</span>
+          <span className={style.label}>{patient.name}</span>
         </p>
         <p className={style.patientText}>
-          <span className={style.label}>Sex: {displayGender(patient.sex)}</span>
+          <span className={style.label}>{displayGender(patient.sex)}</span>
         </p>
         <p className={style.patientText}>
-          <span className={style.label}>DOB: {patient.dob}</span>
+          <span className={style.label}>{patient.dob}</span>
         </p>
       </div>
       <Link href={"/patients/" + patient.phone}>
