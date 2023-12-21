@@ -111,6 +111,25 @@
         android:text="Chat"
         android:layout_centerInParent="true"/>
 
+    <Button
+        android:id="@+id/contactButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Insurance"
+        android:layout_below="@id/btnNavigateToChat"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/contactButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact GP"
+        android:layout_below="@id/contactButton1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+
 
 
     <!-- Add more TextViews with labels for other details -->

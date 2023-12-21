@@ -30,11 +30,11 @@
     <string name="review_title">Leave a Review</string>
 
     <!-- Patient Details-->
-    <string name="user_height">Height: </string>
-    <string name="user_weight">Weight: </string>
-    <string name="user_name">Name: </string>
-    <string name="user_email">Email: </string>
+    <string name="user_height">Height: \u0020</string>
+    <string name="user_weight">Weight: \u0020</string>
+    <string name="user_name">Name: \u0020</string>
+    <string name="user_email">Email: \u0020</string>
     <string name="logout_button">Logout</string>
-    <string name="user_gender">Gender: </string>
+    <string name="user_gender">Gender:\u0020 </string>
 
 </resources>
