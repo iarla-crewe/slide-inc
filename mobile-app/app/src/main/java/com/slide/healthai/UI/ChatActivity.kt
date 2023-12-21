@@ -10,19 +10,22 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.slide.healthai.BuildConfig
 import com.slide.healthai.databinding.ActivityChatBinding
 import org.json.JSONArray
 import org.json.JSONObject
 
+
 class ChatActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChatBinding
-    private val stringAPIKey = "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"
+    private val stringAPIKey = BuildConfig.API_KEY
     private val stringURLEndPoint = "https://api.openai.com/v1/chat/completions"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChatBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Log.d("ChatActivity", "API Key: $stringAPIKey")
 
         binding.btnSendChat.setOnClickListener {
             sendChatMessage()
