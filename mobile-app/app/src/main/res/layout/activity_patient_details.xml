@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/logout_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"/>
+
+    <!-- Static labels and dynamic content for each user detail -->
+    <TextView
+        android:id="@+id/labelUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_name"
+        android:textSize="18sp"
+        android:layout_below="@id/logoutButton"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/labelUserName"
+        android:layout_alignTop="@id/labelUserName"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/labelUserEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_email"
+        android:textSize="18sp"
+        android:layout_below="@id/tvUserName"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tvUserEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/labelUserEmail"
+        android:layout_alignTop="@id/labelUserEmail"
+        android:textSize="18sp"/>
+
+    <!-- TextView for the Height label -->
+    <TextView
+        android:id="@+id/labelUserHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_height"
+        android:textSize="18sp"
+        android:layout_below="@id/tvUserEmail"
+        android:layout_marginTop="8dp"/>
+
+    <!-- TextView for the Height value -->
+    <TextView
+        android:id="@+id/tvUserHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_toEndOf="@id/labelUserHeight"
+        android:layout_alignTop="@id/labelUserHeight"/>
+
+    <!-- TextView for the Weight label -->
+    <TextView
+        android:id="@+id/labelUserWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_weight"
+        android:textSize="18sp"
+        android:layout_below="@id/tvUserHeight"
+        android:layout_marginTop="8dp"/>
+
+    <!-- TextView for the Weight value -->
+    <TextView
+        android:id="@+id/tvUserWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_toEndOf="@id/labelUserWeight"
+        android:layout_alignTop="@id/labelUserWeight"/>
+
+    <!-- TextView for the Gender label -->
+    <TextView
+        android:id="@+id/labelUserGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_gender"
+        android:textSize="18sp"
+        android:layout_below="@id/tvUserWeight"
+        android:layout_marginTop="8dp"/>
+
+    <!-- TextView for the Gender value -->
+    <TextView
+        android:id="@+id/tvUserGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_toEndOf="@id/labelUserGender"
+        android:layout_alignTop="@id/labelUserGender"/>
+
+    <Button
+        android:id="@+id/btnNavigateToChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chat"
+        android:layout_centerInParent="true"/>
+
+
+
+    <!-- Add more TextViews with labels for other details -->
+
+</RelativeLayout>

@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.slide.healthai">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthAI"
         tools:targetApi="31">
+
         <activity
+<<<<<<< HEAD
             android:name=".SupportActivity"
             android:exported="false" />
         <activity
@@ -27,21 +34,52 @@
         <activity
             android:name=".WelcomeActivity"
             android:exported="true">
+=======
+            android:name=".UI.LoginActivity"
+            android:exported="true"
+            android:label="Login"
+            >
+>>>>>>> ba34d5d9f2b19e170f8ed978e0a689b557f723bd
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:label="Login Activity"/>
-        <activity
-            android:name=".SignUpActivity"
-            android:label="Sign Up Activity"/>
-        <activity
-            android:name=".PaymentActivity"
-            android:label="Payment Activity"/>
-    </application>
 
+        <activity
+            android:name=".UI.PatientDetailsActivity"
+            android:exported="false"
+            android:label="Home"/>
+
+        <activity
+            android:name=".UI.PaymentActivity"
+            android:exported="false"
+            android:label="Payment"/>
+
+        <activity
+            android:name=".UI.ProfessionalHelpActivity"
+            android:exported="false"
+            android:label="Professional Help"/>
+
+        <activity
+            android:name=".UI.ReviewActivity"
+            android:exported="false"
+            android:label="Review"/>
+
+        <activity
+            android:name=".UI.SupportActivity"
+            android:exported="false"
+            android:label="Technical Support"/>
+
+        <activity android:name=".UI.ChatActivity"/>
+
+
+        <meta-data
+    android:name="com.google.android.gms.wallet.api.enabled"
+    android:value="true" />
+
+
+
+
+    </application>
 </manifest>

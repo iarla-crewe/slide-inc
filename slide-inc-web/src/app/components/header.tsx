@@ -1,12 +1,31 @@
+'use client';
+
+import { signOut, useSession } from 'next-auth/react';
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import React from "react";
 
-const Header: React.FC = () => {
-    return(
-        <header className="bg-gray-300 pb-6 pt-8 border-b border-gray-500">
-        <h1 className="text-3xl font-bold text-black ml-4">HealthAI</h1>
-      </header>
-    )
+import style from './header.module.css'
 
+const Header: React.FC = () => {
+  const session = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect('/signin');
+    }
+  });
+  
+  return (
+    <header className={style.header}>
+      <Link href="./">
+        <h1 className={style.h1}>HealthAI</h1>
+      </Link>
+      <div className={style.accountInfoDiv}>
+        <div className={style.email}>{session?.data?.user?.email}</div>
+        <button className={style.button} onClick={() => signOut()}>Logout</button>
+      </div>
+    </header>
+  )
 }
 
 export default Header;

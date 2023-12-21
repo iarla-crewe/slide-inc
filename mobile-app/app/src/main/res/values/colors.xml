@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#FFFFFFFF</color>
+    <color name="secondary">#2CC389</color>
+    <color name="Tertiary">#2F4858</color>
+    <color name="SecondaryHover">#318f6b</color>
+    <color name="TertiaryHover">#21313b</color>
+
+
 </resources>

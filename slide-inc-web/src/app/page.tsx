@@ -1,34 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import Header from './components/header';
+import { redirect } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 const Home: React.FC = () => {
-  return (
+  redirect('/patients');
   
-    <div>
-      <Header/>
-      <main className="flex flex-col items-center justify-center min-h-screen">
-        <h1 className="text-5xl font-bold mb-8">Welcome to HealthAI</h1>
-        <p className="text-xl text-center mb-8">
-          Unlock the Power of AI in Healthcare
-        </p>
-        <div className="flex flex-col space-y-4">
-          <Link href="./patientList">
-            <span className="google-login-button">
-              <span className="button-icon" />
-              Login with Google
-            </span>
-          </Link>
-        </div>
-        <p className="text-lg mt-6">
-          New to HealthAI?{' '}
-          <Link href="./registration">
-            <span className="text-blue-500">Create an Account</span>
-          </Link>
-        </p>
-      </main>
-    </div>
-  );
+  return (
+    <div/>
+  )
 }
 
 export default Home;

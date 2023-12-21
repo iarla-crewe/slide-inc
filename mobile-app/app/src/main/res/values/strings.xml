@@ -4,7 +4,6 @@
     <!-- Welcome Activity -->
     <string name="welcome_title">Welcome to HealthAI</string>
     <string name="login">Login</string>
-    <string name="sign_up">Sign Up</string>
 
     <!-- Login and SignUp Activities -->
     <string name="first_name">First Name</string>
@@ -19,10 +18,23 @@
     <!-- Home Page -->
     <string name="home_title">HealthAI</string>
 
-    <!-- Support Pages -->
+    <!-- Professional Help Page -->
     <string name="professional_help_title">Get Professional Help</string>
+
+    <!-- Support Page -->
     <string name="support_title">Support</string>
+    <string name="support_subheading">Any issues using the app? Let us help.</string>
+    <string name="issue_description">Please describe your issue</string>
 
     <!-- Review Page -->
     <string name="review_title">Leave a Review</string>
+
+    <!-- Patient Details-->
+    <string name="user_height">Height: </string>
+    <string name="user_weight">Weight: </string>
+    <string name="user_name">Name: </string>
+    <string name="user_email">Email: </string>
+    <string name="logout_button">Logout</string>
+    <string name="user_gender">Gender: </string>
+
 </resources>

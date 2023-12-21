@@ -3,12 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-<<<<<<< HEAD:mobile-app/app/src/main/res/layout/activity_healthai.xml
-    tools:context=".supportActivity">
-=======
-    tools:context=".ProfessionalHelpActivity">
->>>>>>> 2b669aa21759639ec5324ac334911dcf9a3446ff:mobile-app/app/src/main/res/layout/activity_professional_help.xml
+    android:layout_height="match_parent">
+
 
     <TextView
         android:id="@+id/tvTitle"
