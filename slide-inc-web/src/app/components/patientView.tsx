@@ -4,7 +4,6 @@ import { Patient } from '../lib/model';
 import { displayGender } from '../lib/utils';
 
 const PatientView = (patient: Patient) => {
-  console.log(patient)
   return (
     <div className="patientBox">
       <div className="patientInfo">

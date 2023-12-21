@@ -9,6 +9,8 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const [passwordAgain, setPasswordAgain] = useState('');
 
+  const router = useRouter();
+
   const signup = () => {
     createUserWithEmailAndPassword(auth, email, password);
   };
@@ -93,6 +95,13 @@ export default function Signup() {
                 Sign Up
               </button>
             </div>
+
+            <p className="mt-10 text-center text-sm text-gray-400">
+            Already a member?{' '}
+            <button onClick={() => router.push('signin')} className="font-semibold leading-6 text-indigo-400 hover:text-indigo-300">
+              Log In
+            </button>
+          </p>
           </div>
         </div>
       </div>
