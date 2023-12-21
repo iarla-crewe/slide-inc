@@ -4,6 +4,7 @@ plugins {
     id("com.google.gms.google-services")
 
 }
+println("Environment variable OPENAI_API_KEY: ${System.getenv("OPENAI_API_KEY")}")
 
 android {
     namespace = "com.slide.healthai"
@@ -12,12 +13,15 @@ android {
 
     defaultConfig {
         applicationId = "com.slide.healthai"
+        android.buildFeatures.buildConfig = true
         minSdk = 24
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        val openAIKey = System.getenv("OPENAI_API_KEY") ?: "NO_API_KEY_FOUND"
+        buildConfigField("String", "API_KEY", "\"$openAIKey\"")
     }
     buildFeatures {
         viewBinding = true
