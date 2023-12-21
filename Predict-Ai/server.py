@@ -11,8 +11,8 @@ app = Flask(__name__)
 def predict_lung_cancer_endpoint():
     try:
         lung_cancer_model, lung_cancer_preprocessor = load_lung_cancer_model()
-
         data = request.get_json()
+
         prediction = predict_lung_cancer(lung_cancer_model, lung_cancer_preprocessor, data)
         return jsonify({'prediction': f"{prediction * 100:.0f}%"})
     except Exception as e:

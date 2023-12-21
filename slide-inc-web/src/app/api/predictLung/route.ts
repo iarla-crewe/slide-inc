@@ -5,17 +5,19 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
-    const query = `
-    query {
-      user(login: "MenaiAla") {
-          avatarUrl
-    }
-  `;
+    let body = await request.json()
+    console.log("body: ", body)
 
-    fetch('http://127.0.0.1:5000/predictLung', {
-        method: 'POST',
-        body: JSON.stringify(request),
+    const res = await fetch('http://127.0.0.1:5000/predictLung', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // 'API-Key': process.env.DATA_API_KEY!,
+      },
+      body: JSON.stringify(body),
     })
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-}
+   
+    const data = await res.json()
+    console.log("DATA: ", data)
+    return Response.json(data)
+  }
