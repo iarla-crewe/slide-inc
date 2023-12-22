@@ -1,6 +1,7 @@
-from lung_predict import predict_lung_cancer, load_lung_cancer_model
-from heart_predict import predict_heart_disease, load_model
+from lung_predict import predict_lung_cancer_model, load_lung_cancer_model, transform_lung_format
+from heart_predict import predict_heart_disease, load_model, transform_heart_format
 from stroke_predict import stroke_predict, load_stroke_model
+
 from flask import Flask, request, jsonify
 
 # Initialize Flask application
@@ -14,11 +15,11 @@ def predict_lung_cancer():
         # Load the lung cancer prediction model and preprocessor
         lung_cancer_model, lung_cancer_preprocessor = load_lung_cancer_model()
 
-        # Get the JSON data from the request
         data = request.get_json()
 
-        # Make lung cancer predictions using the loaded model and preprocessor
-        prediction = predict_lung_cancer(lung_cancer_model, lung_cancer_preprocessor, data)
+        data = transform_lung_format(data)
+
+        prediction = predict_lung_cancer_model(lung_cancer_model, lung_cancer_preprocessor, data)
 
         # Return the prediction as a JSON response
         return jsonify({'prediction': f"{prediction * 100:.0f}%"})
@@ -37,11 +38,12 @@ def predict_heart():
         # Get the JSON data from the request
         data = request.get_json()
 
-        # Make heart disease predictions using the loaded model
-        prediction = predict_heart_disease(trained_model, data)
+        data = transform_heart_format(data)
 
-        # Return the prediction as a JSON response
-        return jsonify({'prediction': f'{prediction.rstrip("0").rstrip(".")}%'})
+        # Assuming data is a dictionary containing new patient features
+        prediction = predict_heart_disease(trained_model, data)
+        return jsonify({'prediction':  f'{prediction.rstrip("0").rstrip(".")}%'})
+
     except Exception as e:
         # Return an error message if an exception occurs
         return jsonify({'error': str(e)})
