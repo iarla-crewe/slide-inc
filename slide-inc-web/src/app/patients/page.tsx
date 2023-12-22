@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+
 import Header from '../components/header';
 import PatientView from '../components/patientView';
 import { getAllPatientsOfDoctor } from '../lib/database';
