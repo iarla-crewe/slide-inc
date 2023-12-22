@@ -64,8 +64,8 @@ export default async function PatientDetails({ params }: { params: { phone: stri
                             <span className={style.patientDetail}>{patient.policyNumber}</span>
                         </div>
                     </div>
-                    <MyLungForm params={{phone: params.phone}}/>
-                    <MyHeartForm params={{phone: params.phone}}/>
+                    <MyLungForm params={{phone: formattedPhone}}/>
+                    <MyHeartForm params={{phone: formattedPhone}}/>
                 </div>
             </div>
         </div>

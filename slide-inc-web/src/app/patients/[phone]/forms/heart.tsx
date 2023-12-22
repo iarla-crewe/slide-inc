@@ -54,9 +54,10 @@ const MyHeartForm = ({ params }: { params: { phone: string } }) => {
       .then((heartPredict) => {
         setHeartPredict(heartPredict.prediction)
       });
-
       try {
+        console.log("Heart predictions: ", heartPredict)
         let addToDatabase = await addHeartPredictions(params.phone, heartPredict)
+        console.log("add to database status: ", addToDatabase)
       } catch(e: any) {
         console.log("There was an error adding the Heart Prediction to the database: ", e)
       } 

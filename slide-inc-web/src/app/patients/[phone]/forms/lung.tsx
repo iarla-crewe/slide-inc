@@ -58,7 +58,10 @@ const MyLungForm = ({ params }: { params: { phone: string } }) => {
       });
 
       try {
+        console.log("Lung predictions: ", lungPredict)
+        console.log("Phone num: ", params.phone)
         let addToDatabase = await addLungPredictions(params.phone, lungPredict)
+        console.log("add to database status: ", addToDatabase)
       } catch(e: any) {
         console.log("There was an error adding the Lung Prediction to the database: ", e)
       } 

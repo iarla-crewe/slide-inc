@@ -78,7 +78,7 @@ export async function addLungPredictions(
     
     const reference = ref(database, PATIENTS_PATH + phone + "/lungPrediction")
 
-    set(reference, prediction)
+    await set(reference, prediction)
  
     return true;
 }
@@ -93,7 +93,7 @@ export async function addHeartPredictions(
     
     const reference = ref(database, PATIENTS_PATH + phone + "/heartPrediction")
 
-    set(reference, prediction)
+    await set(reference, prediction)
  
     return true;
 }
