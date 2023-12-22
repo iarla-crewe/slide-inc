@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.slide.healthai">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
-
 
     <application
         android:allowBackup="true"
@@ -14,35 +11,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HealthAI"
-        tools:targetApi="31">
+        android:theme="@style/Theme.HealthAI">
 
         <activity
-<<<<<<< HEAD
-            android:name=".SupportActivity"
-            android:exported="false" />
-        <activity
-<<<<<<< HEAD
-            android:name=".PersonalInfoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".supportActivity"
-=======
-            android:name=".ProfessionalHelpActivity"
->>>>>>> 2b669aa21759639ec5324ac334911dcf9a3446ff
-            android:exported="false" />
-        <activity
-            android:name=".WelcomeActivity"
-            android:exported="true">
-=======
             android:name=".UI.LoginActivity"
             android:exported="true"
-            android:label="Login"
-            >
->>>>>>> ba34d5d9f2b19e170f8ed978e0a689b557f723bd
+            android:label="Login">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
@@ -71,15 +48,11 @@
             android:exported="false"
             android:label="Technical Support"/>
 
-        <activity android:name=".UI.ChatActivity"/>
-
+        <activity android:name=".UI.ChatActivity"
+            android:exported="false"/>
 
         <meta-data
-    android:name="com.google.android.gms.wallet.api.enabled"
-    android:value="true" />
-
-
-
-
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
     </application>
 </manifest>
