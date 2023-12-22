@@ -4,39 +4,26 @@ import { getPatient } from '@/app/lib/database';
 import { displayGender } from '@/app/lib/utils';
 import Header from '@/app/components/header';
 
+import style from '../patients.module.css'
+
 export default async function PatientDetails({ params }: { params: { phone: string }}) {
     const patient = await getPatient(params.phone.replace("%2B", "+"));
     if (patient == null) return (<div/>)
 
+    // {patient.name}
+    // {displayGender(patient.sex)}
+    // {patient.dob}
+
     return (
-        <div className="container">
+        <div className={style.body}>
             <Header/>
-            <div className="patient-details">
-                <Link href="/patients">
-                    <span className="back-button">Back</span>
-                </Link>
-                <div className="patientBox">
-                <div className="patientInfo">
-                    <p className="patientText">
-                    <span className="label">Name: {patient.name} </span>
-                    </p>
-                    <p className="patientText">
-                    <span className="label">Sex: {displayGender(patient.sex)} </span>
-                    </p>
-                    <p className="patientText">
-                    <span className="label">DOB: {patient.dob} </span>
-                    </p>
+            <div className={style.patientDetails}>
+                <div className={style.container}>
+                    <div className={style.patientName}>
+                        <span className={style.subheader}>Patient</span>
+                        <h1 className={style.h1}>{patient.name}</h1>
+                    </div>
                 </div>
-                </div>
-            </div>
-            <div className="divider"></div>
-            <div className="predictionText">
-                <p className="label">Prediction:</p>
-                <p>TODO</p>
-            </div>
-            <div className="healthScoreText">
-                <p className="label">Health Score:</p>
-                <p>TODO</p>
             </div>
         </div>
     );

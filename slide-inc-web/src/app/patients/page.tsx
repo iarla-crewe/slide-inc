@@ -11,7 +11,7 @@ export default async function Patients() {
   const patients = await getAllPatientsOfDoctor(doctorPhone);
 
   return (
-    <div>
+    <div className={style.body}>
       <Header/>
       <div className={style.patientList} >
         <h2 className={style.listHeader}>Patients List</h2>

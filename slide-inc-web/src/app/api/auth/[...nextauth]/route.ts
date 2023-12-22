@@ -2,6 +2,7 @@ import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials";
 import {signInWithEmailAndPassword} from 'firebase/auth';
 import { auth } from "@/app/firebase";
+import { NextApiRequest, NextApiResponse } from "next";
 
 export const authOptions = {
   pages: {
@@ -29,6 +30,12 @@ export const authOptions = {
   ],
 }
 
-const handler = NextAuth(authOptions)
+const authHandler = NextAuth(authOptions);
 
-export { handler as GET, handler as POST}
+export async function POST(req: NextApiRequest, res: NextApiResponse) {
+    return await authHandler(req, res)
+}
+
+export async function GET(req: NextApiRequest, res: NextApiResponse) {
+  return await authHandler(req, res)
+}
