@@ -4,7 +4,7 @@ import {signInWithEmailAndPassword} from 'firebase/auth';
 import { auth } from "@/app/firebase";
 import { NextApiRequest, NextApiResponse } from "next";
 
-export const authOptions = {
+const authOptions = {
   pages: {
     signIn: '/signin'
   },
