@@ -18,6 +18,6 @@ export async function POST(request: Request) {
     })
    
     const data = await res.json()
-    console.log("DATA: ", data)
+    console.log("DATA Heart: ", data)
     return Response.json(data)
   }

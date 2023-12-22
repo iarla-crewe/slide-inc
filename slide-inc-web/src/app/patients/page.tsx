@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from '../components/header';
 import PatientView from '../components/patientView';
 

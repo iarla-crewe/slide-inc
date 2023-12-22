@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import './form.css'; // Import your CSS file
 import { useRouter } from 'next/router';
-import { POST } from '@/app/api/predictHeart/route';
-import { addHeartPredictions } from '@/app/lib/database';
+import { POST } from '../../../api/predictHeart/route';
+import { addHeartPredictions } from '../../../lib/database';
 
 
 const MyHeartForm = ({ params }: { params: { phone: string } }) => {

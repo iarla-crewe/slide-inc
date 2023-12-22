@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     let body = await request.json()
     console.log("body: ", body)
 
-    const res = await fetch('http://127.0.0.1:5000/predictHeart', {
+    const res = await fetch('http://127.0.0.1:5000/predictLung', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -18,6 +18,6 @@ export async function POST(request: Request) {
     })
    
     const data = await res.json()
-    console.log("DATA: ", data)
+    console.log("DATA Lung: ", data)
     return Response.json(data)
   }

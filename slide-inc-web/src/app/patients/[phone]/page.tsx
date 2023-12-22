@@ -1,11 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
-import { getPatient } from '@/app/lib/database';
-import { displayGender } from '@/app/lib/utils';
-import Header from '@/app/components/header';
+import { getPatient } from '../../lib/database';
+import { displayGender } from '../../lib/utils';
+import Header from '../../components/header';
 import { redirect } from 'next/navigation';
 
 import style from '../patients.module.css'
+import MyHeartForm from './forms/heart';
+import MyLungForm from './forms/lung';
 
 export default async function PatientDetails({ params }: { params: { phone: string }}) {
     const formattedPhone = params.phone.replace("%2B", "+").replace("%2", "+")
@@ -62,6 +64,8 @@ export default async function PatientDetails({ params }: { params: { phone: stri
                             <span className={style.patientDetail}>{patient.policyNumber}</span>
                         </div>
                     </div>
+                    <MyLungForm params={{phone: params.phone}}/>
+                    <MyHeartForm params={{phone: params.phone}}/>
                 </div>
             </div>
         </div>

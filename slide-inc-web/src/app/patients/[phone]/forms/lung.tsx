@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import './form.css'; // Import your CSS file
 import { useRouter } from 'next/router';
-import { POST } from '@/app/api/predictLung/route';
-import { addLungPredictions } from '@/app/lib/database';
+import { POST } from '../../../api/predictLung/route';
+import { addLungPredictions } from '../../../lib/database';
 
 
 const MyLungForm = ({ params }: { params: { phone: string } }) => {
