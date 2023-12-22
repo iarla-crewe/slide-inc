@@ -13,7 +13,7 @@
     font-weight: bold;
 }
 
-.accountInfoDiv {   
+.accountInfoDiv {
     display: flex;
     flex-direction: column;
 }
