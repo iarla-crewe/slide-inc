@@ -12,7 +12,7 @@ export default async function Patients() {
 
   return (
     <div className={style.body}>
-      <Header/>
+      <Header params={{ backLink: "" }}/>
       <div className={style.patientList} >
         <h2 className={style.listHeader}>Patients List</h2>
         {patients.map((patient, index) => (

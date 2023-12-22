@@ -49,7 +49,7 @@ export default function AddPatient() {
 
     return (
         <div>
-            <Header />
+            <Header params={{ backLink: "" }} />
             <main className='flex flex-col items-center justify-center min-h-screen'>
                 <div>
                     <h1> Add Patient </h1>

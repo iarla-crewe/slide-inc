@@ -11,6 +11,7 @@
 .h1 {
     font-size: 1.875rem;
     font-weight: bold;
+    padding-bottom: 0.25rem;
 }
 
 .accountInfoDiv {
