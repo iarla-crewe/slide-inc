@@ -3,7 +3,6 @@ package com.slide.healthai.UI
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.AuthFailureError
 import com.android.volley.DefaultRetryPolicy
 import com.android.volley.Request
@@ -11,12 +10,13 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.slide.healthai.BuildConfig
+import com.slide.healthai.R
 import com.slide.healthai.databinding.ActivityChatBinding
 import org.json.JSONArray
 import org.json.JSONObject
 
 
-class ChatActivity : AppCompatActivity() {
+class ChatActivity : BaseActivity() {
     private lateinit var binding: ActivityChatBinding
     private val stringAPIKey = BuildConfig.API_KEY
     private val stringURLEndPoint = "https://api.openai.com/v1/chat/completions"
@@ -25,6 +25,9 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityChatBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "ChatBot"
         Log.d("ChatActivity", "API Key: $stringAPIKey")
 
         binding.btnSendChat.setOnClickListener {

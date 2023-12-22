@@ -3,53 +3,65 @@ package com.slide.healthai.UI
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
+import android.view.MenuItem
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.slide.healthai.R
 import com.slide.healthai.databinding.ActivityPatientDetailsBinding
 
-class PatientDetailsActivity : AppCompatActivity() {
+class PatientDetailsActivity : BaseActivity() {
     private lateinit var binding: ActivityPatientDetailsBinding
-    private lateinit var auth: FirebaseAuth
     private lateinit var databaseReference: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPatientDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setupContactButtons()
+        // Set the toolbar
+        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Your Profile"
 
-        binding.btnNavigateToChat.setOnClickListener {
-            val intent = Intent(this, ChatActivity::class.java)
-            startActivity(intent)
-        }
 
-        auth = FirebaseAuth.getInstance()
+
+        // No need to initialize auth here since it's already done in BaseActivity
         databaseReference = FirebaseDatabase.getInstance().reference
 
-        binding.logoutButton.setOnClickListener {
-            auth.signOut()
-            navigateToLogin()
-        }
 
         fetchPatientDetails()
     }
 
-    private fun setupContactButtons() {
-        binding.contactButton1.setOnClickListener {
-            openWebPage("https://www1.vhi.ie/help-and-support/contact") // Replace with your first URL
-        }
 
-        binding.contactButton2.setOnClickListener {
-            openWebPage("https://www.corkcitymedicalcentre.com/") // Replace with your second URL
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_chat -> {
+                // Code to navigate to the Chat Activity
+                val intent = Intent(this, ChatActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.menu_contact_insurance -> {
+                openWebPage("https://www.insurancewebsite.com") // Replace with actual URL
+                true
+            }
+            R.id.menu_contact_gp -> {
+                openWebPage("https://www.gpwebsite.com") // Replace with actual URL
+                true
+            }
+            R.id.menu_logout -> {
+                auth.signOut()
+                navigateToLogin()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun openWebPage(url: String) {
+
+    override fun openWebPage(url: String) {
         val webPage: Uri = Uri.parse(url)
         val intent = Intent(Intent.ACTION_VIEW, webPage)
         if (intent.resolveActivity(packageManager) != null) {
