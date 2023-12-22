@@ -18,6 +18,19 @@
         android:title="Contact GP" />
 
     <item
+        android:id="@+id/menu_review"
+        android:title="Review" />
+
+    <item
+        android:id="@+id/menu_support"
+        android:title="Support" />
+
+
+    <item
+        android:id="@+id/menu_payment"
+        android:title="Payment" />
+
+    <item
         android:id="@+id/menu_logout"
         android:title="Logout" />
 </menu>
