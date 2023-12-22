@@ -1,7 +1,7 @@
 const token = process.env.TOKEN;
 
 export async function GET(request: Request) {
-    return new Response('Predict Heart Ai');
+    return new Response('Predict Lung Ai');
 }
 
 export async function POST(request: Request) {

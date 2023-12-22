@@ -2,7 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { getPatient } from '@/app/lib/database';
 import { displayGender } from '@/app/lib/utils';
-import MyForm from './form/form';
+import MyLungForm from './forms/lung';
+import MyHeartForm from './forms/heart';
 
 export default async function PatientDetails({ params }: { params: { phone: string } }) {
     const patient = await getPatient(params.phone.replace("%2B", "+"));
@@ -37,7 +38,8 @@ export default async function PatientDetails({ params }: { params: { phone: stri
                 <p className="label">Health Score:</p>
                 <p>TODO</p>
             </div>
-            <MyForm params={{ phone: params.phone.replace("%2B", "+") }}/>
+            <MyLungForm params={{ phone: params.phone.replace("%2B", "+") }}/>
+            <MyHeartForm params={{ phone: params.phone.replace("%2B", "+") }}/>
         </div>
     );
 };

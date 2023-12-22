@@ -38,3 +38,29 @@ def predict_lung_cancer(model, preprocessor, new_patient_data):
     new_patient_df = preprocessor.transform(new_patient_df)
     probabilities = model.predict_proba(new_patient_df)[:, 1]
     return probabilities[0]
+
+
+def transform_lung_format(input_data):
+    # Define a mapping for the transformation
+    mapping = {
+        "gender": "GENDER",
+        "age": "AGE",
+        "smoking": "SMOKING",
+        "yellow_fingers": "YELLOW_FINGERS",
+        "anxiety": "ANXIETY",
+        "peer_pressure": "PEER_PRESSURE",
+        "cronic_disease": "CHRONIC DISEASE",
+        "fatigue": "FATIGUE",
+        "allergy": "ALLERGY",
+        "wheezing": "WHEEZING",
+        "alcohol_consuming": "ALCOHOL CONSUMING",
+        "coughing": "COUGHING",
+        "shortness_of_breath": "SHORTNESS OF BREATH",
+        "swallowing_difficulty": "SWALLOWING DIFFICULTY",
+        "chest_pain": "CHEST PAIN"
+    }
+
+    # Create a new dictionary with transformed keys
+    transformed_data = {mapping[key]: value for key, value in input_data.items()}
+
+    return transformed_data

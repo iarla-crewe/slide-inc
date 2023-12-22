@@ -6,7 +6,7 @@ import { POST } from '@/app/api/predictLung/route';
 import { addLungPredictions } from '@/app/lib/database';
 
 
-const MyForm = ({ params }: { params: { phone: string } }) => {
+const MyLungForm = ({ params }: { params: { phone: string } }) => {
 
   const [lungFormData, setLungFormData] = useState({
     gender: "",
@@ -35,24 +35,6 @@ const MyForm = ({ params }: { params: { phone: string } }) => {
       [name]: value,
     }));
   };
-
-  let data = {
-    "GENDER": "F",
-    "AGE": 45,
-    "SMOKING": 0,
-    "YELLOW_FINGERS": 0,
-    "ANXIETY": 1,
-    "PEER_PRESSURE": 0,
-    "CHRONIC DISEASE": 0,
-    "FATIGUE": 1,
-    "ALLERGY": 0,
-    "WHEEZING": 1,
-    "ALCOHOL CONSUMING": 1,
-    "COUGHING": 1,
-    "SHORTNESS OF BREATH": 1,
-    "SWALLOWING DIFFICULTY": 0,
-    "CHEST PAIN": 2
-  }
 
   const onSubmit = async (e: any) => {
     e.preventDefault();
@@ -114,4 +96,4 @@ const MyForm = ({ params }: { params: { phone: string } }) => {
   )
 }
 
-export default MyForm;
+export default MyLungForm;

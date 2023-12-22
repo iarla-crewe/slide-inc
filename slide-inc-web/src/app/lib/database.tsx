@@ -89,12 +89,11 @@ export async function addHeartPredictions(
         console.log("Invalid phone number: " + phone)
         return false;
     }
+    console.log("Adding heart prediction")
     
-    const reference = ref(database, PATIENTS_PATH + phone)
+    const reference = ref(database, PATIENTS_PATH + phone + "/heartPrediction")
 
-    set(reference, {
-        heartPrediction: prediction
-    })
+    set(reference, prediction)
  
     return true;
 }
@@ -106,11 +105,9 @@ export async function addStrokePredictions(
         return false;
     }
     
-    const reference = ref(database, PATIENTS_PATH + phone)
+    const reference = ref(database, PATIENTS_PATH + phone + "/strokePrediction")
 
-    set(reference, {
-        strokePrediction: prediction
-    })
+    set(reference, prediction)
  
     return true;
 }
