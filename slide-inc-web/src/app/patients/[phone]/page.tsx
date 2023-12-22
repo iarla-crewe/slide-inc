@@ -37,7 +37,7 @@ export default async function PatientDetails({ params }: { params: { phone: stri
                 <p className="label">Health Score:</p>
                 <p>TODO</p>
             </div>
-            <MyForm/>
+            <MyForm params={{ phone: params.phone.replace("%2B", "+") }}/>
         </div>
     );
 };

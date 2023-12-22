@@ -3,20 +3,27 @@ import React, { useState } from 'react';
 import './form.css'; // Import your CSS file
 import { useRouter } from 'next/router';
 import { POST } from '@/app/api/predictLung/route';
+import { addLungPredictions } from '@/app/lib/database';
 
-const MyForm = () => {
+
+const MyForm = ({ params }: { params: { phone: string } }) => {
+
   const [lungFormData, setLungFormData] = useState({
-    chest_pain_type: '',
-    bp: '',
-    cholesterol: '',
-    fbs_over_120: '',
-    ekg_results: '',
-    max_hr: '',
-    exercise_angina: '',
-    st_depression: '',
-    slope_of_st: '',
-    number_of_vessels_fluro: '',
-    thallium: '',
+    gender: "",
+    age: 0,
+    smoking: 0,
+    yellow_fingers: 0,
+    anxiety: 0,
+    peer_pressure: 0,
+    cronic_disease: 0,
+    fatigue: 0,
+    allergy: 0,
+    wheezing: 0,
+    alcohol_consuming: 0,
+    coughing: 0,
+    shortness_of_breath: 0,
+    swallowing_difficulty: 0,
+    chest_pain: 0
   })
 
   const [lungPredict, setLungPredict] = useState('')
@@ -29,7 +36,7 @@ const MyForm = () => {
     }));
   };
 
-  let lungdata = {
+  let data = {
     "GENDER": "F",
     "AGE": 45,
     "SMOKING": 0,
@@ -47,24 +54,12 @@ const MyForm = () => {
     "CHEST PAIN": 2
   }
 
-	// const callAPI = async () => {
-	// 	try {
-	// 		const res = await fetch(
-	// 			`http://127.0.0.1:5000/predictLung`, {
-  //         method: 'POST',
-  //         body: JSON.stringify(lungdata)
-  //       }
-	// 		);
-	// 		const data = await res.json();
-	// 		alert(data);
-	// 	} catch (err) {
-	// 		console.log(err);
-	// 	}
-	// };
-
   const onSubmit = async (e: any) => {
     e.preventDefault();
-    if (!lungdata)
+
+    console.log("Lung form data: ", lungFormData)
+
+    if (!lungFormData)
       return alert("lung data is empty");
 
     
@@ -73,11 +68,18 @@ const MyForm = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(lungdata),
+      body: JSON.stringify(lungFormData),
     })
       .then((res) => res.json())
       .then((lungPredict) => {
-        setLungPredict(JSON.stringify(lungPredict))});
+        setLungPredict(lungPredict.prediction)
+      });
+
+      try {
+        let addToDatabase = await addLungPredictions(params.phone, lungPredict)
+      } catch(e: any) {
+        console.log("There was an error adding the Lung Prediction to the database: ", e)
+      } 
   };
 
   return (

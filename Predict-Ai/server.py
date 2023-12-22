@@ -4,6 +4,32 @@ from heart_predict import predict_new_patients, load_model
 from flask import Flask, request, jsonify
 
 
+def transform_format(input_data):
+    # Define a mapping for the transformation
+    mapping = {
+        "gender": "GENDER",
+        "age": "AGE",
+        "smoking": "SMOKING",
+        "yellow_fingers": "YELLOW_FINGERS",
+        "anxiety": "ANXIETY",
+        "peer_pressure": "PEER_PRESSURE",
+        "cronic_disease": "CHRONIC DISEASE",
+        "fatigue": "FATIGUE",
+        "allergy": "ALLERGY",
+        "wheezing": "WHEEZING",
+        "alcohol_consuming": "ALCOHOL CONSUMING",
+        "coughing": "COUGHING",
+        "shortness_of_breath": "SHORTNESS OF BREATH",
+        "swallowing_difficulty": "SWALLOWING DIFFICULTY",
+        "chest_pain": "CHEST PAIN"
+    }
+
+    # Create a new dictionary with transformed keys
+    transformed_data = {mapping[key]: value for key, value in input_data.items()}
+
+    return transformed_data
+
+
 app = Flask(__name__)
 
 # Define an endpoint to receive new patient data and make predictions
@@ -12,6 +38,8 @@ def predict_lung_cancer_endpoint():
     try:
         lung_cancer_model, lung_cancer_preprocessor = load_lung_cancer_model()
         data = request.get_json()
+
+        data = transform_format(data)
 
         prediction = predict_lung_cancer(lung_cancer_model, lung_cancer_preprocessor, data)
         return jsonify({'prediction': f"{prediction * 100:.0f}%"})

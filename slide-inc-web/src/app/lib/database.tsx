@@ -8,6 +8,12 @@ const PATIENTS_PATH = "patients/"
 const PHONE_REGEX = /^\+\d*$/
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
+type PredictionsObj = {
+    lung: number,
+    heart: number,
+    stroke: number
+}
+
 export function createDoctor(phone: string, email: string, name: string, practice: string) : boolean {
     if(!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone)
@@ -53,11 +59,62 @@ export function createPatient(
         sex: sex,
         height: height,
         weight: weight,
-        dob: dob
+        dob: dob,
+        lungPrediction: '',
+        heartPrediction: '',
+        strokePrediction: ''
     })
 
     return true;
 }
+
+export async function addLungPredictions(
+    phone: string, prediction: string
+) : Promise<Boolean> {
+    if(!PHONE_REGEX.test(phone)) {
+        console.log("Invalid phone number: " + phone)
+        return false;
+    }
+    
+    const reference = ref(database, PATIENTS_PATH + phone + "/lungPrediction")
+
+    set(reference, prediction)
+ 
+    return true;
+}
+export async function addHeartPredictions(
+    phone: string, prediction: string
+) : Promise<Boolean> {
+    if(!PHONE_REGEX.test(phone)) {
+        console.log("Invalid phone number: " + phone)
+        return false;
+    }
+    
+    const reference = ref(database, PATIENTS_PATH + phone)
+
+    set(reference, {
+        heartPrediction: prediction
+    })
+ 
+    return true;
+}
+export async function addStrokePredictions(
+    phone: string, prediction: string
+) : Promise<Boolean> {
+    if(!PHONE_REGEX.test(phone)) {
+        console.log("Invalid phone number: " + phone)
+        return false;
+    }
+    
+    const reference = ref(database, PATIENTS_PATH + phone)
+
+    set(reference, {
+        strokePrediction: prediction
+    })
+ 
+    return true;
+}
+
 
 export async function getDoctor(phone: string) : Promise<Doctor | null> {
     if(!PHONE_REGEX.test(phone)) {
@@ -106,6 +163,32 @@ export async function getPatient(phone: string) : Promise<Patient | null> {
             data.weight,
             data.dob
         );
+    }).catch((error) => {
+        console.log('Could not read data from database: ' + error);
+        return null;
+    })
+
+    return result;
+}
+
+export async function getPatientsPredictions(phone: string): Promise<PredictionsObj| null> {
+    if(!PHONE_REGEX.test(phone)) {
+        console.log("Invalid phone number: " + phone);
+        return null;
+    }
+
+    const reference = ref(database, PATIENTS_PATH + phone)
+    const result = get(reference).then((snapshot) => {
+        const data = snapshot.val();
+        if (data == null) return null;
+
+        let predictions: PredictionsObj = {
+            lung: data.lungPrediction,
+            heart: data.heartPrediction,
+            stroke: data.strokePrediction
+        }
+
+        return predictions
     }).catch((error) => {
         console.log('Could not read data from database: ' + error);
         return null;
