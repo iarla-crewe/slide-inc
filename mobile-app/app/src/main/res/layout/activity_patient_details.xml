@@ -105,6 +105,42 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textColor="@color/tertiaryColor"/>
+
+
+        <TextView
+            android:id="@+id/labelHeartPrediction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chance of Heart Disease: "
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/tertiaryColor"/>
+
+        <TextView
+            android:id="@+id/tvHeartPrediction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/tertiaryColor"/>
+
+        <!-- Pair of Label and Value for Chance of Lung Cancer -->
+        <TextView
+            android:id="@+id/labelLungPrediction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chance of Lung Cancer: "
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/tertiaryColor"/>
+
+        <TextView
+            android:id="@+id/tvLungPrediction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/tertiaryColor"/>
+
+
     </LinearLayout>
 
     <!-- Additional layout elements here if needed -->

@@ -85,6 +85,8 @@ class PatientDetailsActivity : BaseActivity() {
                                 val weight = snapshot.child("weight").getValue(Int::class.java)?.toString() ?: "No Weight"
                                 val genderBoolean = snapshot.child("sex").getValue(Boolean::class.java)
                                 val gender = if (genderBoolean == true) "Male" else "Female"
+                                val heartPrediction = snapshot.child("heartPrediction").getValue(String::class.java)?.toString() ?: "No Data"
+                                val lungPrediction = snapshot.child("lungPrediction").getValue(String::class.java)?.toString() ?: "No Data"
 
                                 // Update UI with patient details
                                 binding.tvUserName.text = name
@@ -92,6 +94,8 @@ class PatientDetailsActivity : BaseActivity() {
                                 binding.tvUserHeight.text = height
                                 binding.tvUserWeight.text = weight
                                 binding.tvUserGender.text = gender
+                                binding.tvHeartPrediction.text = heartPrediction
+                                binding.tvLungPrediction.text = lungPrediction
                             }
                         } else {
                             showNoData()

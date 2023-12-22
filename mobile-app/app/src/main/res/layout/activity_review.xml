@@ -1,75 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="UI.SupportActivity">
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"/>
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/reviewText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/review_title"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082" />
+        android:text="Review"
+        android:textSize="24sp"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
 
-    <TextView
-        android:id="@+id/requestHelp"
-        android:layout_width="191dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="111dp"
-        android:layout_marginEnd="108dp"
-        android:layout_marginBottom="54dp"
-        android:text="Request Professional Help"
-        android:textColor="#000000"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/categorizeIssue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/categorizeIssue"
-        android:layout_width="191dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="204dp"
-        android:layout_marginBottom="95dp"
-        android:text="Categorize Issue"
-        android:textColor="#000000"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/describeIssue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/requestHelp" />
-
-    <TextView
-        android:id="@+id/describeIssue"
-        android:layout_width="191dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="204dp"
-        android:layout_marginBottom="231dp"
-        android:text="Describe Issue"
-        android:textColor="#000000"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/requestHelpButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categorizeIssue" />
+    <EditText
+        android:id="@+id/reviewInput"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/reviewText"
+        android:layout_margin="20dp"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:hint="Write your review here"/>
 
     <Button
-        android:id="@+id/requestHelpButton"
-        android:layout_width="300px"
+        android:id="@+id/submitReviewButton"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="90dp"
-        android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/describeIssue" />
+        android:text="Submit Review"
+        android:layout_below="@id/reviewInput"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_selector"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

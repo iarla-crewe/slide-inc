@@ -29,14 +29,14 @@
             android:label="Home"/>
 
         <activity
-            android:name=".UI.PaymentActivity"
+            android:name=".UI.DBActivity"
             android:exported="false"
             android:label="Payment"/>
 
-        <activity
-            android:name=".UI.ProfessionalHelpActivity"
+        <activity android:name=".UI.PayActivity"
+
             android:exported="false"
-            android:label="Professional Help"/>
+            android:label="Payment"/>
 
         <activity
             android:name=".UI.ReviewActivity"

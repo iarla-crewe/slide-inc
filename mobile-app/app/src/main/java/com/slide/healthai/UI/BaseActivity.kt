@@ -33,6 +33,24 @@ abstract class BaseActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    protected fun navigateToReview() {
+        val intent = Intent(this, ReviewActivity::class.java)
+        startActivity(intent)
+    }
+
+    protected fun navigateToSupport() {
+        val intent = Intent(this, SupportActivity::class.java)
+        startActivity(intent)
+    }
+
+
+
+    protected fun navigateToPayment() {
+        val intent = Intent(this, PayActivity::class.java)
+        startActivity(intent)
+    }
+
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
@@ -42,6 +60,18 @@ abstract class BaseActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.menu_chat -> {
                 navigateToChat()
+                true
+            }
+            R.id.menu_review -> {
+                navigateToReview()
+                true
+            }
+            R.id.menu_support -> {
+                navigateToSupport()
+                true
+            }
+            R.id.menu_payment -> {
+                navigateToPayment()
                 true
             }
             R.id.menu_your_profile -> {
