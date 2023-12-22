@@ -4,6 +4,7 @@ import {signInWithEmailAndPassword} from 'firebase/auth';
 import { auth } from "@/app/firebase";
 
 const authOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: '/signin'
   },
