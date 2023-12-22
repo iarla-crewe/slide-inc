@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SupportActivity">
+    tools:context="UI.SupportActivity">
 
     <TextView
         android:id="@+id/tvTitle"
@@ -17,6 +17,59 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_bias="0.082" />
+
+    <TextView
+        android:id="@+id/requestHelp"
+        android:layout_width="191dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="111dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="54dp"
+        android:text="Request Professional Help"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/categorizeIssue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/categorizeIssue"
+        android:layout_width="191dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="204dp"
+        android:layout_marginBottom="95dp"
+        android:text="Categorize Issue"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/describeIssue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/requestHelp" />
+
+    <TextView
+        android:id="@+id/describeIssue"
+        android:layout_width="191dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="204dp"
+        android:layout_marginBottom="231dp"
+        android:text="Describe Issue"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/requestHelpButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categorizeIssue" />
+
+    <Button
+        android:id="@+id/requestHelpButton"
+        android:layout_width="300px"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="90dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/describeIssue" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

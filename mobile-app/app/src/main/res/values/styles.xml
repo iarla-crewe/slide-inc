@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTextAppearance">
+        <item name="android:textColor">@color/tertiaryColor</item>
+    </style>
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/secondaryColor</item>
+        <item name="colorAccent">@color/tertiaryColor</item>
+        <item name="android:textAppearance">@style/AppTextAppearance</item>
+    </style>
+
+
+    <!-- Style for buttons -->
+    <style name="AppButton" parent="Widget.AppCompat.Button">
+        <item name="android:backgroundTint">@color/secondaryColor</item>
+        <item name="android:textColor">@color/tertiaryColor</item>
+<!--        <item name="android:fontFamily">@font/inter</item>-->
+        <item name="android:radius">40dp</item> <!-- 20 degree rounding -->
+    </style>
+
+</resources>

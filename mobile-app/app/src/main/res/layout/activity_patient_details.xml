@@ -2,90 +2,111 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    >
 
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="415dp"
         android:layout_height="wrap_content"
-        android:text="Logout"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"/>
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
-    <!-- Static labels and dynamic content for each user detail -->
-    <TextView
-        android:id="@+id/labelUserName"
-        android:layout_width="wrap_content"
+    <!-- Container for user details -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Name: "
-        android:textSize="18sp"
-        android:layout_below="@id/logoutButton"
-        android:layout_marginTop="8dp"/>
+        android:orientation="vertical"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="8dp"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/tvUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/labelUserName"
-        android:layout_alignTop="@id/labelUserName"
-        android:textSize="18sp"/>
+        <!-- Pair of Label and Value for User Name -->
+        <TextView
+            android:id="@+id/labelUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_name"
+            android:textSize="18sp"
+            android:textColor="@color/tertiaryColor"/>
 
-    <TextView
-        android:id="@+id/labelUserEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email: "
-        android:textSize="18sp"
-        android:layout_below="@id/tvUserName"
-        android:layout_marginTop="8dp"/>
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/tertiaryColor"/>
 
-    <TextView
-        android:id="@+id/tvUserEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/labelUserEmail"
-        android:layout_alignTop="@id/labelUserEmail"
-        android:textSize="18sp"/>
+        <!-- Pair of Label and Value for User Email -->
+        <TextView
+            android:id="@+id/labelUserEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_email"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/tertiaryColor"/>
 
-    <!-- TextView for the Height label -->
-    <TextView
-        android:id="@+id/labelUserHeight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Height: "
-        android:textSize="18sp"
-        android:layout_below="@id/tvUserEmail"
-        android:layout_marginTop="8dp"/>
+        <TextView
+            android:id="@+id/tvUserEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/tertiaryColor"/>
 
-    <!-- TextView for the Height value -->
-    <TextView
-        android:id="@+id/tvUserHeight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_toEndOf="@id/labelUserHeight"
-        android:layout_alignTop="@id/labelUserHeight"/>
+        <!-- Pair of Label and Value for User Height -->
+        <TextView
+            android:id="@+id/labelUserHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_height"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/tertiaryColor"/>
 
-    <!-- TextView for the Weight label -->
-    <TextView
-        android:id="@+id/labelUserWeight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Weight: "
-        android:textSize="18sp"
-        android:layout_below="@id/tvUserHeight"
-        android:layout_marginTop="8dp"/>
+        <TextView
+            android:id="@+id/tvUserHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/tertiaryColor"/>
 
-    <!-- TextView for the Weight value -->
-    <TextView
-        android:id="@+id/tvUserWeight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_toEndOf="@id/labelUserWeight"
-        android:layout_alignTop="@id/labelUserWeight"/>
+        <!-- Pair of Label and Value for User Weight -->
+        <TextView
+            android:id="@+id/labelUserWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_weight"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/tertiaryColor"/>
 
+        <TextView
+            android:id="@+id/tvUserWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/tertiaryColor"/>
 
-    <!-- Add more TextViews with labels for other details -->
+        <!-- Pair of Label and Value for User Gender -->
+        <TextView
+            android:id="@+id/labelUserGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_gender"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/tertiaryColor"/>
+
+        <TextView
+            android:id="@+id/tvUserGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/tertiaryColor"/>
+    </LinearLayout>
+
+    <!-- Additional layout elements here if needed -->
 
 </RelativeLayout>

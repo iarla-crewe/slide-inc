@@ -1,6 +1,9 @@
+import Header from '../components/header';
 import PatientView from '../components/patientView';
 
-import { createPatient, getAllPatientsOfDoctor, getDoctor } from '../lib/database';
+import { getAllPatientsOfDoctor } from '../lib/database';
+
+import style from './patients.module.css';
 
 export default async function Patients() {
   const doctorPhone = "+353873459811"
@@ -8,11 +11,14 @@ export default async function Patients() {
   const patients = await getAllPatientsOfDoctor(doctorPhone);
 
   return (
-    <div className="patientList" >
-      <h2>Patients List</h2>
-      {patients.map((patient, index) => (
-        <PatientView key={index} {...patient} />
-      ))}
+    <div className={style.body}>
+      <Header params={{ backLink: "" }}/>
+      <div className={style.patientList} >
+        <h2 className={style.listHeader}>Patients List</h2>
+        {patients.map((patient, index) => (
+          <PatientView key={index} {...patient} />
+        ))}
+      </div>
     </div>
   );
 }

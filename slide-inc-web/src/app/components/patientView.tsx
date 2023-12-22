@@ -3,23 +3,24 @@ import Link from 'next/link';
 import { Patient } from '../lib/model';
 import { displayGender } from '../lib/utils';
 
+import style from '../patients/patients.module.css'
+
 const PatientView = (patient: Patient) => {
-  console.log(patient)
   return (
-    <div className="patientBox">
-      <div className="patientInfo">
-        <p className="patientText">
-          <span className="label">Name: {patient.name}</span>
+    <div className={style.patientBox}>
+      <div className={style.patientInfo}>
+        <p className={style.patientText}>
+          <span className={style.label}>{patient.name}</span>
         </p>
-        <p className="patientText">
-          <span className="label">Sex: {displayGender(patient.sex)}</span>
+        <p className={style.patientText}>
+          <span className={style.label}>{displayGender(patient.sex)}</span>
         </p>
-        <p className="patientText">
-          <span className="label">DOB: {patient.dob}</span>
+        <p className={style.patientText}>
+          <span className={style.label}>{patient.dob}</span>
         </p>
       </div>
       <Link href={"/patients/" + patient.phone}>
-        <button className="detailsButton">
+        <button className={style.detailsButton}>
           <span>Details</span>
         </button>
       </Link>

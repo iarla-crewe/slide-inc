@@ -9,16 +9,16 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.slide.healthai.databinding.ActivityWelcomeBinding
+import com.slide.healthai.databinding.ActivityPaymentBinding
 
-class WelcomeActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityWelcomeBinding
+class PaymentActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityPaymentBinding
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityWelcomeBinding.inflate(layoutInflater)
+        binding = ActivityPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
@@ -40,19 +40,6 @@ class WelcomeActivity : AppCompatActivity() {
                 Log.w("TAG", "Failed to read value.", error.toException())
             }
         })
-
-
-        binding.btnLogin.setOnClickListener {
-            startActivity(
-                Intent(this, LoginActivity::class.java)
-            )
-        }
-
-        binding.btnSignUp.setOnClickListener {
-            startActivity(
-                Intent(this, SignUpActivity::class.java)
-            )
-        }
     }
 
 

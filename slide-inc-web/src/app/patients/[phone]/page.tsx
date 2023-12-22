@@ -2,44 +2,68 @@ import React from 'react';
 import Link from 'next/link';
 import { getPatient } from '@/app/lib/database';
 import { displayGender } from '@/app/lib/utils';
-import MyLungForm from './forms/lung';
-import MyHeartForm from './forms/heart';
+import Header from '@/app/components/header';
+import { redirect } from 'next/navigation';
 
-export default async function PatientDetails({ params }: { params: { phone: string } }) {
-    const patient = await getPatient(params.phone.replace("%2B", "+"));
-    if (patient == null) return (<div />)
+import style from '../patients.module.css'
 
-    return (
-        <div className="container">
-            <div className="patient-details">
-                <Link href="/patients">
-                    <span className="back-button">Back</span>
-                </Link>
-                <div className="patientBox">
-                    <div className="patientInfo">
-                        <p className="patientText">
-                            <span className="label">Name: {patient.name} </span>
-                        </p>
-                        <p className="patientText">
-                            <span className="label">Sex: {displayGender(patient.sex)} </span>
-                        </p>
-                        <p className="patientText">
-                            <span className="label">DOB: {patient.dob} </span>
-                        </p>
+export default async function PatientDetails({ params }: { params: { phone: string }}) {
+    const formattedPhone = params.phone.replace("%2B", "+").replace("%2", "+")
+    const patient = await getPatient(formattedPhone);
+
+    console.log(patient)
+
+    if (patient == null) return (
+        <div className={style.body}>
+            <Header params={{ backLink: "" }}/>
+            <div className={style.patientDetails}>
+                <div className={style.container}>
+                    <div className={style.patientName}>
+                        <h1 className={style.h1}>Could not find patient with phone number: {formattedPhone}</h1>
+                        <a href="/patients" className={style.subheaderLink}>Go Back</a>
                     </div>
                 </div>
             </div>
-            <div className="divider"></div>
-            <div className="predictionText">
-                <p className="label">Prediction:</p>
-                <p>TODO</p>
+        </div>
+    )
+
+    return (
+        <div className={style.body}>
+            <Header params={{ backLink: "/patients" }}/>
+            <div className={style.patientDetails}>
+                <div className={style.container}>
+                    <div className={style.patientName}>
+                        <p className={style.subheader}>Patient</p>
+                        <h1 className={style.h1}>{patient.name}</h1>
+                    </div>
+                    <div className={style.row}>
+                        <div className={style.column}>
+                            <span className={style.patientDetaiLabel}>DOB: </span>
+                            <span className={style.patientDetail}>{patient.dob}</span>
+                        </div>
+                        <div className={style.column}>
+                            <span className={style.patientDetaiLabel}>Height: </span>
+                            <span className={style.patientDetail}>{patient.height}cm</span>
+                        </div>
+                        <div className={style.column}>
+                            <span className={style.patientDetaiLabel}>Health Insurance</span>
+                        </div>
+                    </div>
+                    <div className={style.row}>
+                        <div className={style.column}>
+                            <span className={style.patientDetaiLabel}>Sex: </span>
+                            <span className={style.patientDetail}>{displayGender(patient.sex)}</span>
+                        </div>
+                        <div className={style.column}>
+                            <span className={style.patientDetaiLabel}>Weight: </span>
+                            <span className={style.patientDetail}>{patient.weight}km</span>
+                        </div>
+                        <div className={style.column}>
+                            <span className={style.patientDetail}>{patient.policyNumber}</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="healthScoreText">
-                <p className="label">Health Score:</p>
-                <p>TODO</p>
-            </div>
-            <MyLungForm params={{ phone: params.phone.replace("%2B", "+") }}/>
-            <MyHeartForm params={{ phone: params.phone.replace("%2B", "+") }}/>
         </div>
     );
 };

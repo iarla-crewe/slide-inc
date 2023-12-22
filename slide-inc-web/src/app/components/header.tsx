@@ -5,26 +5,39 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React from "react";
 
-const Header: React.FC = () => {
+import style from './header.module.css'
+
+const Header = ({params}: {params: { backLink: string }}) => {
   const session = useSession({
     required: true,
     onUnauthenticated() {
       redirect('/signin');
-    },
+    }
   });
+
+  let backButton = (<span/>)
+  if (params != undefined && params.backLink != undefined && params.backLink != null && params.backLink != "") {
+    backButton = (
+      <a href={params.backLink}>
+        <div className={style.button}>Back</div>
+      </a>
+    )
+  }
   
   return (
-    <header className="bg-gray-300 pb-6 pt-8 border-b border-gray-500">
-      <Link href="./">
-      <h1 className="text-3xl font-bold text-black ml-4">HealthAI</h1>
-      </Link>
-      <div className="p-8">
-        <div className='text-white'>{session?.data?.user?.email}</div>
-        <button className='text-white' onClick={() => signOut()}>Logout</button>
+    <header className={style.header}>
+      <div>
+        <Link href="./">
+          <h1 className={style.h1}>HealthAI</h1>
+        </Link>
+        {backButton}
+      </div>
+      <div className={style.accountInfoDiv}>
+        <div className={style.email}>{session?.data?.user?.email}</div>
+        <button className={style.button} onClick={() => signOut()}>Logout</button>
       </div>
     </header>
   )
-
 }
 
 export default Header;
