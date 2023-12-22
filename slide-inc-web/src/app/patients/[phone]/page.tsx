@@ -7,7 +7,8 @@ import Header from '@/app/components/header';
 import style from '../patients.module.css'
 
 export default async function PatientDetails({ params }: { params: { phone: string }}) {
-    const patient = await getPatient(params.phone.replace("%2B", "+"));
+    const formattedPhone = params.phone.replace("%2B", "+").replace("%2", "+")
+    const patient = await getPatient(formattedPhone);
     if (patient == null) return (<div/>)
 
     // {patient.name}
