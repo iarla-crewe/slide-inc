@@ -18,10 +18,28 @@
         tools:targetApi="31">
 
         <activity
+<<<<<<< HEAD
+            android:name=".SupportActivity"
+            android:exported="false" />
+        <activity
+<<<<<<< HEAD
+            android:name=".PersonalInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".supportActivity"
+=======
+            android:name=".ProfessionalHelpActivity"
+>>>>>>> 2b669aa21759639ec5324ac334911dcf9a3446ff
+            android:exported="false" />
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="true">
+=======
             android:name=".UI.LoginActivity"
             android:exported="true"
             android:label="Login"
             >
+>>>>>>> ba34d5d9f2b19e170f8ed978e0a689b557f723bd
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
