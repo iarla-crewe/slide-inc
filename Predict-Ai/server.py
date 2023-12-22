@@ -1,4 +1,4 @@
-from lung_predict import predict_lung_cancer, load_lung_cancer_model, transform_lung_format
+from lung_predict import predict_lung_cancer_model, load_lung_cancer_model, transform_lung_format
 from heart_predict import predict_heart_disease, load_model, transform_heart_format
 from stroke_predict import stroke_predict, load_stroke_model
 
@@ -17,13 +17,9 @@ def predict_lung_cancer():
 
         data = request.get_json()
 
-        print("data: ", data)
-
         data = transform_lung_format(data)
 
-        print(data)
-
-        prediction = predict_lung_cancer(lung_cancer_model, lung_cancer_preprocessor, data)
+        prediction = predict_lung_cancer_model(lung_cancer_model, lung_cancer_preprocessor, data)
 
         # Return the prediction as a JSON response
         return jsonify({'prediction': f"{prediction * 100:.0f}%"})
