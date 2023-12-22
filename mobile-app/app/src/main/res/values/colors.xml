@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <color name="primary">#FFFFFFFF</color>
-    <color name="secondary">#2CC389</color>
-    <color name="Tertiary">#2F4858</color>
-    <color name="SecondaryHover">#318f6b</color>
-    <color name="TertiaryHover">#21313b</color>
-
-
+    <color name="primaryColor">#FFFFFF</color>
+    <color name="secondaryColor">#2CC389</color>
+    <color name="tertiaryColor">#2F4858</color>
+    <color name="secondaryHoverColor">#318f6b</color>
+    <color name="tertiaryHoverColor">#21313b</color>
 </resources>
