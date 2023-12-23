@@ -62,7 +62,8 @@ export function createPatient(
         dob: dob,
         lungPrediction: '',
         heartPrediction: '',
-        strokePrediction: ''
+        strokePrediction: '',
+        healthScore: ''
     })
 
     return true;
@@ -97,6 +98,7 @@ export async function addHeartPredictions(
  
     return true;
 }
+
 export async function addStrokePredictions(
     phone: string, prediction: string
 ) : Promise<Boolean> {
@@ -112,6 +114,20 @@ export async function addStrokePredictions(
     return true;
 }
 
+export async function addHealthScore(
+    phone: string, healthScore: string
+) : Promise<Boolean> {
+    if(!PHONE_REGEX.test(phone)) {
+        console.log("Invalid phone number: " + phone)
+        return false;
+    }
+    
+    const reference = ref(database, PATIENTS_PATH + phone + "/healthScore")
+
+    set(reference, healthScore)
+ 
+    return true;
+}
 
 export async function getDoctor(phone: string) : Promise<Doctor | null> {
     if(!PHONE_REGEX.test(phone)) {

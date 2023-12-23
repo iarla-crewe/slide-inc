@@ -8,6 +8,7 @@ import { redirect } from 'next/navigation';
 import style from '../patients.module.css'
 import MyHeartForm from './forms/heart';
 import MyLungForm from './forms/lung';
+import MyStrokeForm from './forms/stroke';
 
 export default async function PatientDetails({ params }: { params: { phone: string }}) {
     const formattedPhone = params.phone.replace("%2B", "+").replace("%2", "+")
@@ -66,6 +67,7 @@ export default async function PatientDetails({ params }: { params: { phone: stri
                     </div>
                     <MyLungForm params={{phone: formattedPhone}}/>
                     <MyHeartForm params={{phone: formattedPhone}}/>
+                    <MyStrokeForm params={{phone: formattedPhone}}/>
                 </div>
             </div>
         </div>

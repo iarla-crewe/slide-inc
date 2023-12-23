@@ -7,7 +7,7 @@ import { getAllPatientsOfDoctor } from '../lib/database';
 import style from './patients.module.css';
 
 export default async function Patients() {
-  const doctorPhone = "+353873459811"
+  const doctorPhone = "+353871234567"
 
   const patients = await getAllPatientsOfDoctor(doctorPhone);
 
