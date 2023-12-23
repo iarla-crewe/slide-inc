@@ -115,7 +115,7 @@ export async function addStrokePredictions(
 }
 
 export async function addHealthScore(
-    phone: string, healthScore: string
+    phone: string, healthScore: number
 ) : Promise<Boolean> {
     if(!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone)
