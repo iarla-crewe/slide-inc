@@ -44,11 +44,11 @@ class PatientDetailsActivity : BaseActivity() {
                 true
             }
             R.id.menu_contact_insurance -> {
-                openWebPage("https://www.insurancewebsite.com") // Replace with actual URL
+                openWebPage("https://www1.vhi.ie/help-and-support/contact") // Replace with actual URL
                 true
             }
             R.id.menu_contact_gp -> {
-                openWebPage("https://www.gpwebsite.com") // Replace with actual URL
+                openWebPage("https://corkcitymedicalcentre.com/") // Replace with actual URL
                 true
             }
             R.id.menu_logout -> {
