@@ -28,6 +28,20 @@ class PatientDetailsActivity : BaseActivity() {
 
         databaseReference = FirebaseDatabase.getInstance().reference
         fetchPatientDetails()
+
+        binding.btnShare.setOnClickListener {
+            shareHealthScore()
+        }
+    }
+
+    private fun shareHealthScore() {
+        val shareText = "My Health Score: ${binding.tvHealthScore.text}"
+        val shareIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, shareText)
+            type = "text/plain"
+        }
+        startActivity(Intent.createChooser(shareIntent, "Share via"))
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
