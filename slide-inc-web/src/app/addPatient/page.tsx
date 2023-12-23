@@ -3,6 +3,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth'; // Import Firebase auth functions
+import Link from 'next/link';
 import Header from '@/app/components/header';
 import { auth } from '@/app/firebase';
 import { createPatient } from '@/app/lib/database'; // Import your createPatient function from the database module
@@ -47,7 +48,7 @@ export default function AddPatient() {
 
   return (
     <div>
-      <Header params={{ backLink: "" }} />
+      <Header params={{ backLink: "/patients" }}/>
       <main className='flex flex-col items-center justify-center min-h-screen'>
         <div>
           <h1> Add Patient </h1>
