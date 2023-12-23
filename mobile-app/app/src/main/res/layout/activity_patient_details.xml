@@ -141,6 +141,52 @@
             android:textColor="@color/tertiaryColor"/>
 
 
+        <TextView
+            android:id="@+id/labelStrokePrediction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chance of having a stroke: "
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/tertiaryColor"/>
+
+        <TextView
+            android:id="@+id/tvStrokePrediction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/tertiaryColor"/>
+
+
+        <TextView
+            android:id="@+id/labelHealthScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health Score: "
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/tertiaryColor"/>
+
+        <TextView
+            android:id="@+id/tvHealthScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/tertiaryColor"/>
+
+        <Button
+            android:id="@+id/btnShare"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:text="Share Health Score"
+            android:layout_marginTop="16dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/secondaryColor"
+            android:textColor="@color/tertiaryColor"
+            android:background="@drawable/button_selector"/>
+
+
     </LinearLayout>
 
     <!-- Additional layout elements here if needed -->
