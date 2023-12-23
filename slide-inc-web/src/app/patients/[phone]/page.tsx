@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { getPatient } from '../../lib/database';
 import { displayGender } from '../../lib/utils';
@@ -12,10 +12,27 @@ import MyHeartForm from './forms/heart';
 import MyLungForm from './forms/lung';
 import MyStrokeForm from './forms/stroke';
 import HealthScoreButton from './button';
+import { Patient } from '../../lib/model';
 
-export default async function PatientDetails({ params }: { params: { phone: string }}) {
-    const formattedPhone = params.phone.replace("%2B", "+").replace("%2", "+")
-    const patient = await getPatient(formattedPhone);
+export default function PatientDetails({ params }: { params: { phone: string }}) {
+    const [patient, setPatient] = useState<Patient|null>(null)
+    const [formattedPhone,setFormattedPhone] = useState('')
+
+    useEffect(() => {
+        setFormattedPhone(params.phone.replace("%2B", "+").replace("%2", "+"))
+
+        const fetchPatient = async () => {
+            try {
+              const fetchedPatient = await getPatient(formattedPhone);
+              setPatient(fetchedPatient);
+            } catch (error) {
+              console.error('Error fetching patient:', error);
+              setPatient(null);
+            }
+        }
+        fetchPatient();
+    }, [formattedPhone, params.phone])
+
 
     console.log(patient)
 

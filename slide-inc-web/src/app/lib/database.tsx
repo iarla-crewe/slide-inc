@@ -14,13 +14,13 @@ type PredictionsObj = {
     stroke: number
 }
 
-export function createDoctor(phone: string, email: string, name: string, practice: string) : boolean {
-    if(!PHONE_REGEX.test(phone)) {
+export function createDoctor(phone: string, email: string, name: string, practice: string): boolean {
+    if (!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone)
         return false;
     }
 
-    if(!EMAIL_REGEX.test(email)) {
+    if (!EMAIL_REGEX.test(email)) {
         console.log("Invalid email: " + email)
         return false;
     }
@@ -32,23 +32,23 @@ export function createDoctor(phone: string, email: string, name: string, practic
         name: name,
         practice: practice
     })
-    
+
     return true;
 }
 
 export function createPatient(
     gpPhone: string, phone: string, email: string, name: string, policyNumber: number, sex: boolean, height: number, weight: number, dob: string
-) : boolean {
-    if(!PHONE_REGEX.test(phone)) {
+): boolean {
+    if (!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone)
         return false;
     }
 
-    if(!EMAIL_REGEX.test(email)) {
+    if (!EMAIL_REGEX.test(email)) {
         console.log("Invalid email: " + email)
         return false;
     }
-    
+
     const reference = ref(database, PATIENTS_PATH + phone)
 
     set(reference, {
@@ -71,66 +71,66 @@ export function createPatient(
 
 export async function addLungPredictions(
     phone: string, prediction: string
-) : Promise<Boolean> {
-    if(!PHONE_REGEX.test(phone)) {
+): Promise<Boolean> {
+    if (!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone)
         return false;
     }
-    
+
     const reference = ref(database, PATIENTS_PATH + phone + "/lungPrediction")
 
     await set(reference, prediction)
- 
+
     return true;
 }
 export async function addHeartPredictions(
     phone: string, prediction: string
-) : Promise<Boolean> {
-    if(!PHONE_REGEX.test(phone)) {
+): Promise<Boolean> {
+    if (!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone)
         return false;
     }
     console.log("Adding heart prediction")
-    
+
     const reference = ref(database, PATIENTS_PATH + phone + "/heartPrediction")
 
     await set(reference, prediction)
- 
+
     return true;
 }
 
 export async function addStrokePredictions(
     phone: string, prediction: string
-) : Promise<Boolean> {
-    if(!PHONE_REGEX.test(phone)) {
+): Promise<Boolean> {
+    if (!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone)
         return false;
     }
-    
+
     const reference = ref(database, PATIENTS_PATH + phone + "/strokePrediction")
 
     set(reference, prediction)
- 
+
     return true;
 }
 
 export async function addHealthScore(
     phone: string, healthScore: number
-) : Promise<Boolean> {
-    if(!PHONE_REGEX.test(phone)) {
+): Promise<Boolean> {
+    if (!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone)
         return false;
     }
-    
+
     const reference = ref(database, PATIENTS_PATH + phone + "/healthScore")
 
     set(reference, healthScore)
- 
+
     return true;
 }
 
-export async function getDoctor(phone: string) : Promise<Doctor | null> {
-    if(!PHONE_REGEX.test(phone)) {
+export async function getDoctor(phone: string): Promise<Doctor | null> {
+    if (!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone);
         return null;
     }
@@ -139,7 +139,7 @@ export async function getDoctor(phone: string) : Promise<Doctor | null> {
     const result = get(reference).then((snapshot) => {
         const data = snapshot.val()
         if (data == null) return null;
-    
+
         return new Doctor(
             phone,
             data.email,
@@ -154,8 +154,8 @@ export async function getDoctor(phone: string) : Promise<Doctor | null> {
     return result;
 }
 
-export async function getPatient(phone: string) : Promise<Patient | null> {
-    if(!PHONE_REGEX.test(phone)) {
+export async function getPatient(phone: string): Promise<Patient | null> {
+    if (!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone);
         return null;
     }
@@ -184,8 +184,8 @@ export async function getPatient(phone: string) : Promise<Patient | null> {
     return result;
 }
 
-export async function getPatientsPredictions(phone: string): Promise<PredictionsObj| null> {
-    if(!PHONE_REGEX.test(phone)) {
+export async function getPatientsPredictions(phone: string): Promise<PredictionsObj | null> {
+    if (!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone);
         return null;
     }
@@ -197,9 +197,11 @@ export async function getPatientsPredictions(phone: string): Promise<Predictions
 
         let predictions: PredictionsObj = {
             lung: data.lungPrediction,
-            heart: data.heartPrediction,
-            stroke: data.strokePrediction
+            heart: data.heartPrediciton,
+            stroke: data.strokePrediction,
         }
+
+        console.log("perdictions object contents: ", predictions.lung, predictions.heart, predictions.stroke)
 
         return predictions
     }).catch((error) => {
@@ -210,20 +212,20 @@ export async function getPatientsPredictions(phone: string): Promise<Predictions
     return result;
 }
 
-export async function getAllPatientsOfDoctor(phone: string) : Promise<Patient[]> {
-    if(!PHONE_REGEX.test(phone)) {
+export async function getAllPatientsOfDoctor(phone: string): Promise<Patient[]> {
+    if (!PHONE_REGEX.test(phone)) {
         console.log("Invalid phone number: " + phone);
         return [];
     }
 
     const reference = ref(database, PATIENTS_PATH)
-    const result = get (reference).then((snapshot) => {
+    const result = get(reference).then((snapshot) => {
         const data = snapshot.val();
         if (data == null) return [];
-        
+
         let patients: Patient[] = [];
-        for(let index of Object.keys(data)) {
-            if(data[index].gpPhone !== phone) continue;
+        for (let index of Object.keys(data)) {
+            if (data[index].gpPhone !== phone) continue;
 
             const patient = new Patient(
                 index,
