@@ -141,6 +141,39 @@
             android:textColor="@color/tertiaryColor"/>
 
 
+        <TextView
+            android:id="@+id/labelStrokePrediction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chance of having a stroke: "
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/tertiaryColor"/>
+
+        <TextView
+            android:id="@+id/tvStrokePrediction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/tertiaryColor"/>
+
+
+        <TextView
+            android:id="@+id/labelHealthScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health Score: "
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/tertiaryColor"/>
+
+        <TextView
+            android:id="@+id/tvHealthScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/tertiaryColor"/>
+
     </LinearLayout>
 
     <!-- Additional layout elements here if needed -->

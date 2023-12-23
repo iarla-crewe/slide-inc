@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -20,35 +22,27 @@ class PatientDetailsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPatientDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // Set the toolbar
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.title = "Your Profile"
 
-
-
-        // No need to initialize auth here since it's already done in BaseActivity
         databaseReference = FirebaseDatabase.getInstance().reference
-
-
         fetchPatientDetails()
     }
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_chat -> {
-                // Code to navigate to the Chat Activity
                 val intent = Intent(this, ChatActivity::class.java)
                 startActivity(intent)
                 true
             }
             R.id.menu_contact_insurance -> {
-                openWebPage("https://www1.vhi.ie/help-and-support/contact") // Replace with actual URL
+                openWebPage("https://www1.vhi.ie/help-and-support/contact")
                 true
             }
             R.id.menu_contact_gp -> {
-                openWebPage("https://corkcitymedicalcentre.com/") // Replace with actual URL
+                openWebPage("https://corkcitymedicalcentre.com/")
                 true
             }
             R.id.menu_logout -> {
@@ -60,7 +54,6 @@ class PatientDetailsActivity : BaseActivity() {
         }
     }
 
-
     override fun openWebPage(url: String) {
         val webPage: Uri = Uri.parse(url)
         val intent = Intent(Intent.ACTION_VIEW, webPage)
@@ -68,7 +61,6 @@ class PatientDetailsActivity : BaseActivity() {
             startActivity(intent)
         }
     }
-
 
     private fun fetchPatientDetails() {
         val currentUser = auth.currentUser
@@ -87,6 +79,7 @@ class PatientDetailsActivity : BaseActivity() {
                                 val gender = if (genderBoolean == true) "Male" else "Female"
                                 val heartPrediction = snapshot.child("heartPrediction").getValue(String::class.java)?.toString() ?: "No Data"
                                 val lungPrediction = snapshot.child("lungPrediction").getValue(String::class.java)?.toString() ?: "No Data"
+                                val strokePrediction = snapshot.child("strokePrediction").getValue(String::class.java)?.toString() ?: "No Data"
 
                                 // Update UI with patient details
                                 binding.tvUserName.text = name
@@ -94,8 +87,15 @@ class PatientDetailsActivity : BaseActivity() {
                                 binding.tvUserHeight.text = height
                                 binding.tvUserWeight.text = weight
                                 binding.tvUserGender.text = gender
-                                binding.tvHeartPrediction.text = heartPrediction
-                                binding.tvLungPrediction.text = lungPrediction
+
+                                // Set text and color for predictions
+                                setTextAndColor(binding.tvHeartPrediction, heartPrediction, false)
+                                setTextAndColor(binding.tvLungPrediction, lungPrediction, false)
+                                setTextAndColor(binding.tvStrokePrediction, strokePrediction, false)
+
+                                val healthScore = calculateHealthScore(heartPrediction, lungPrediction, strokePrediction)
+                                binding.tvHealthScore.text = "Health Score: $healthScore%"
+                                setTextAndColor(binding.tvHealthScore, healthScore.toString(), true)
                             }
                         } else {
                             showNoData()
@@ -109,7 +109,33 @@ class PatientDetailsActivity : BaseActivity() {
         }
     }
 
-    //adding a comment to test git
+    private fun setTextAndColor(textView: TextView, prediction: String, isHealthScore: Boolean) {
+        textView.text = prediction
+        val score = prediction.removeSuffix("%").toFloatOrNull() ?: 0f
+        val textColor = if (isHealthScore) {
+            when {
+                score >= 80 -> R.color.green
+                score >= 60 -> R.color.orange
+                else -> R.color.red
+            }
+        } else {
+            when {
+                score <= 20 -> R.color.green
+                score <= 40 -> R.color.orange
+                else -> R.color.red
+            }
+        }
+        textView.setTextColor(ContextCompat.getColor(this, textColor))
+    }
+
+    private fun calculateHealthScore(heartPred: String, lungPred: String, strokePred: String): Float {
+        val heartValue = heartPred.removeSuffix("%").toFloatOrNull() ?: 0f
+        val lungValue = lungPred.removeSuffix("%").toFloatOrNull() ?: 0f
+        val strokeValue = strokePred.removeSuffix("%").toFloatOrNull() ?: 0f
+
+        val average = (heartValue + lungValue + strokeValue) / 3
+        return (100 - average)
+    }
 
     private fun showNoData() {
         binding.tvUserName.text = "No Name"
@@ -117,6 +143,15 @@ class PatientDetailsActivity : BaseActivity() {
         binding.tvUserHeight.text = "Height: --"
         binding.tvUserWeight.text = "Weight: --"
         binding.tvUserGender.text = "Gender: --"
+        setDefaultTextAndColor(binding.tvHeartPrediction, "Heart Prediction: --")
+        setDefaultTextAndColor(binding.tvLungPrediction, "Lung Prediction: --")
+        setDefaultTextAndColor(binding.tvStrokePrediction, "Stroke Prediction: --")
+        setDefaultTextAndColor(binding.tvHealthScore, "Health Score: --")
+    }
+
+    private fun setDefaultTextAndColor(textView: TextView, text: String) {
+        textView.text = text
+        textView.setTextColor(ContextCompat.getColor(this, R.color.tertiaryColor)) // Default color
     }
 
     private fun navigateToLogin() {
@@ -124,5 +159,4 @@ class PatientDetailsActivity : BaseActivity() {
         startActivity(intent)
         finish()
     }
-
 }
