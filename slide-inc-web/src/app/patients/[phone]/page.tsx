@@ -14,20 +14,20 @@ import MyStrokeForm from './forms/stroke';
 import HealthScoreButton from './button';
 import { Patient } from '../../lib/model';
 
-export default function PatientDetails({ params }: { params: { phone: string }}) {
-    const [patient, setPatient] = useState<Patient|null>(null)
-    const [formattedPhone,setFormattedPhone] = useState('')
+export default function PatientDetails({ params }: { params: { phone: string } }) {
+    const [patient, setPatient] = useState<Patient | null>(null)
+    const [formattedPhone, setFormattedPhone] = useState('')
 
     useEffect(() => {
         setFormattedPhone(params.phone.replace("%2B", "+").replace("%2", "+"))
 
         const fetchPatient = async () => {
             try {
-              const fetchedPatient = await getPatient(formattedPhone);
-              setPatient(fetchedPatient);
+                const fetchedPatient = await getPatient(formattedPhone);
+                setPatient(fetchedPatient);
             } catch (error) {
-              console.error('Error fetching patient:', error);
-              setPatient(null);
+                console.error('Error fetching patient:', error);
+                setPatient(null);
             }
         }
         fetchPatient();
@@ -38,7 +38,7 @@ export default function PatientDetails({ params }: { params: { phone: string }})
 
     if (patient == null) return (
         <div className={style.body}>
-            <Header params={{ backLink: "" }}/>
+            <Header params={{ backLink: "" }} />
             <div className={style.patientDetails}>
                 <div className={style.container}>
                     <div className={style.patientName}>
@@ -52,7 +52,7 @@ export default function PatientDetails({ params }: { params: { phone: string }})
 
     return (
         <div className={style.body}>
-            <Header params={{ backLink: "/patients" }}/>
+            <Header params={{ backLink: "/patients" }} />
             <div className={style.patientDetails}>
                 <div className={style.container}>
                     <div className={style.patientName}>
@@ -85,10 +85,18 @@ export default function PatientDetails({ params }: { params: { phone: string }})
                             <span className={style.patientDetail}>{patient.policyNumber}</span>
                         </div>
                     </div>
-                    <MyLungForm params={{phone: formattedPhone}}/>
-                    <MyHeartForm params={{phone: formattedPhone}}/>
-                    <MyStrokeForm params={{phone: formattedPhone}}/>
-                    <HealthScoreButton phone={formattedPhone} />
+                    <div className={style.formContainer}>
+                        <div className={style.formBorder}>
+                            <MyLungForm params={{ phone: formattedPhone }} />
+                        </div>
+                        <div className={style.formBorder}>
+                            <MyHeartForm params={{ phone: formattedPhone }} />
+                        </div>
+                        <div className={style.formBorder}>
+                            <MyStrokeForm params={{ phone: formattedPhone }} />
+                        </div>
+                        <HealthScoreButton phone={formattedPhone} />
+                    </div>
                 </div>
             </div>
         </div>

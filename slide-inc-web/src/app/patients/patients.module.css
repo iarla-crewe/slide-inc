@@ -108,3 +108,15 @@
 .patientDetail {
     font-weight: 600;
 }
+
+.formContainer {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+  }
+  
+  .formBorder {
+    border: 1px solid #ccc; 
+    padding: 10px;
+    flex: 1; 
+  }
