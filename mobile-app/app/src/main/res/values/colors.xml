@@ -5,4 +5,9 @@
     <color name="tertiaryColor">#2F4858</color>
     <color name="secondaryHoverColor">#318f6b</color>
     <color name="tertiaryHoverColor">#21313b</color>
+
+    <color name="green">#00FF00</color>
+    <color name="orange">#FFA500</color>
+    <color name="red">#FF0000</color>
+
 </resources>
