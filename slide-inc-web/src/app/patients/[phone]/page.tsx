@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react';
 import Link from 'next/link';
 import { getPatient } from '../../lib/database';
@@ -9,6 +11,7 @@ import style from '../patients.module.css'
 import MyHeartForm from './forms/heart';
 import MyLungForm from './forms/lung';
 import MyStrokeForm from './forms/stroke';
+import HealthScoreButton from './button';
 
 export default async function PatientDetails({ params }: { params: { phone: string }}) {
     const formattedPhone = params.phone.replace("%2B", "+").replace("%2", "+")
@@ -68,6 +71,7 @@ export default async function PatientDetails({ params }: { params: { phone: stri
                     <MyLungForm params={{phone: formattedPhone}}/>
                     <MyHeartForm params={{phone: formattedPhone}}/>
                     <MyStrokeForm params={{phone: formattedPhone}}/>
+                    <HealthScoreButton phone={formattedPhone} />
                 </div>
             </div>
         </div>
