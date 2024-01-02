@@ -28,7 +28,7 @@ const MyLungForm = ({ params }: { params: { phone: string } }) => {
 
   const [lungPredict, setLungPredict] = useState('')
 
-  const handleLungChange = (e) => {
+  const handleLungChange = (e: any) => {
     const { name, value } = e.target;
     setLungFormData((prevData) => ({
       ...prevData,

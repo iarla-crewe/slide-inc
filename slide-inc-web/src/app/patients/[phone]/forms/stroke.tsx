@@ -24,7 +24,7 @@ const MyStrokeForm = ({ params }: { params: { phone: string } }) => {
 
   const [strokePredict, setStrokePredict] = useState('')
 
-  const handleStrokeChange = (e) => {
+  const handleStrokeChange = (e: any) => {
     const { name, value } = e.target;
     setStrokeFormData((prevData) => ({
       ...prevData,

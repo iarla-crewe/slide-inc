@@ -26,7 +26,7 @@ const MyHeartForm = ({ params }: { params: { phone: string } }) => {
 
   const [heartPredict, setHeartPredict] = useState('')
 
-  const handleHeartChange = (e) => {
+  const handleHeartChange = (e: any) => {
     const { name, value } = e.target;
     setHeartFormData((prevData) => ({
       ...prevData,
