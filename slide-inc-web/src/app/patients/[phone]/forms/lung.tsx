@@ -72,19 +72,22 @@ const MyLungForm = ({ params }: { params: { phone: string } }) => {
       <p>Lung parameters**</p>
       <form onSubmit={onSubmit}>
         {/* Render form inputs based on formData with placeholder data */}
-        {Object.keys(lungFormData).map((key) => (
+        {Object.keys(lungFormData).map((key) => {
+          const typedKey = key as keyof typeof lungFormData;
+          return (
           <div key={key}>
             <label htmlFor={key}>{key}</label>
             <input
-              type={typeof lungFormData[key] === 'number' ? 'number' : 'text'}
+              type={typeof lungFormData[typedKey] === 'number' ? 'number' : 'text'}
               id={key}
               name={key}
-              value={lungFormData[key]}
+              value={lungFormData[typedKey]}
               placeholder={`Enter ${key}`}
               onChange={handleLungChange}
             />
           </div>
-        ))}
+          );
+        })}
 
         <button type="submit">Submit</button>
       </form>

@@ -68,19 +68,22 @@ const MyStrokeForm = ({ params }: { params: { phone: string } }) => {
       <p>Stroke parameters**</p>
       <form onSubmit={onSubmit}>
         {/* Render form inputs based on formData with placeholder data */}
-        {Object.keys(strokeFormData).map((key) => (
+        {Object.keys(strokeFormData).map((key) => {
+          const typedKey = key as keyof typeof strokeFormData;
+          return (
           <div key={key}>
             <label htmlFor={key}>{key}</label>
             <input
-              type={typeof strokeFormData[key] === 'number' ? 'number' : 'text'}
+              type={typeof strokeFormData[typedKey] === 'number' ? 'number' : 'text'}
               id={key}
               name={key}
-              value={strokeFormData[key]}
+              value={strokeFormData[typedKey]}
               placeholder={`Enter ${key}`}
               onChange={handleStrokeChange}
             />
           </div>
-        ))}
+          );
+        })}
 
         <button type="submit">Submit</button>
       </form>

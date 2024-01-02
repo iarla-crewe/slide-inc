@@ -22,7 +22,7 @@ const MyHeartForm = ({ params }: { params: { phone: string } }) => {
     Slope_of_ST: 0,
     Number_of_vessels_fluro: 0,
     Thallium: 0
-  })
+  });  
 
   const [heartPredict, setHeartPredict] = useState('')
 
@@ -68,19 +68,22 @@ const MyHeartForm = ({ params }: { params: { phone: string } }) => {
       <p>Heart parameters**</p>
       <form onSubmit={onSubmit}>
         {/* Render form inputs based on formData with placeholder data */}
-        {Object.keys(heartFormData).map((key) => (
-          <div key={key}>
-            <label htmlFor={key}>{key}</label>
+        {Object.keys(heartFormData).map((key) => {
+        const typedKey = key as keyof typeof heartFormData;
+        return (
+          <div key={typedKey}>
+            <label htmlFor={typedKey}>{typedKey}</label>
             <input
-              type={typeof heartFormData[key] === 'number' ? 'number' : 'text'}
-              id={key}
-              name={key}
-              value={heartFormData[key]}
-              placeholder={`Enter ${key}`}
+              type={typeof heartFormData[typedKey] === 'number' ? 'number' : 'text'}
+              id={typedKey}
+              name={typedKey}
+              value={heartFormData[typedKey]}
+              placeholder={`Enter ${typedKey}`}
               onChange={handleHeartChange}
             />
           </div>
-        ))}
+        );
+      })}
 
         <button type="submit">Submit</button>
       </form>
